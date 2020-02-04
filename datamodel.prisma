@@ -1,0 +1,6 @@
+type User {
+  id: ID! @unique @id,
+  name: String!,
+  email: String!,
+  age: Int,
+}

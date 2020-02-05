@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import UserList from './components/UserList';
+import UserRegistration from './components/UserRegistration/UserRegistration'
+import UserLogin from './components/UserLogin/UserLogin'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +17,12 @@ function App() {
         <Switch>
           <Route path="/user-list">
             <UserList />
+          </Route>
+          <Route path="/register">
+            <UserRegistration />
+          </Route>
+          <Route path="/login">
+            <UserLogin />
           </Route>
         </Switch>
       </Router>

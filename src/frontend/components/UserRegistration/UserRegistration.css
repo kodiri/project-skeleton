@@ -1,0 +1,24 @@
+.UserRegistration-Container {
+    margin: 40vh 0;
+  }
+  
+  .Input-Container {
+    margin-top: 2vh;
+    align-items: right;
+    width: 57vw;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  input {
+    width: 15vw;
+  }
+  
+  button {
+    margin-top: 2vh;
+    padding: 0 1vw;
+    background-color: blue;
+    color: white;
+    border: transparent;
+    border-radius: 10px;
+  }

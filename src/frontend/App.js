@@ -3,6 +3,9 @@ import './App.css';
 import UserList from './components/UserList';
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin'
+import Join from './components/Join/Join'
+import Chat from './components/Chat/Chat'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +18,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+        // <Route path="/" exact component={Join}/>
+        <Route path="/" component={Chat}/>
           <Route path="/user-list">
             <UserList />
           </Route>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import UserList from './components/UserList';
+import Header from './components/Header/Header';
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin'
 import {
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header username="test" />
       <Router>
         <Switch>
           <Route path="/user-list">

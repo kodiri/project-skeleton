@@ -45,7 +45,7 @@ class UserList extends Component {
 
         return (
             <div>
-                {this.state.users.map(user => <p>{user.name}</p>)}
+                {this.state.users.map(user => <p key={user.name}>{user.name}</p>)}
             </div>
         );
     }

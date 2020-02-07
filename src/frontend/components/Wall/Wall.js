@@ -10,7 +10,7 @@ export default class Wall extends React.Component {
                     <input type='text' placeholder='Enter Text' />
                     <button 
                     style={{backgroundColor:'rgb(202,156,24)', height: '50px', width: '80px', color: 'white'}} 
-                    type='submit'>Add</button>
+                    type='submit'>Post</button>
                 </form>
             </header>
             </div>

@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.css';
 import UserList from './components/UserList';
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin'
 import Join from './components/Join/Join'
 import Chat from './components/Chat/Chat'
-import Wall from './components/Wall/Wall'
+import './App.css';
 
 import {
   BrowserRouter as Router,

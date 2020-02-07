@@ -18,8 +18,8 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-        // <Route path="/" exact component={Join}/>
-        <Route path="/" component={Chat}/>
+          <Route path="/" exact component={Join} />
+          <Route path="/chat" component={Chat} />
           <Route path="/user-list">
             <UserList />
           </Route>

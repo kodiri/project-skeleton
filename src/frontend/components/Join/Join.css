@@ -38,7 +38,7 @@ html, body {
     border-bottom: 2px solid white;
   }
   
-  .button {
+  .button button mt-20 {
       color: #fff !important;
       text-transform: uppercase;
       text-decoration: none;

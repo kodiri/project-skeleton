@@ -4,6 +4,10 @@ import UserList from './components/UserList';
 import Header from './components/Header/Header';
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin'
+import Join from './components/Join/Join'
+import Chat from './components/Chat/Chat'
+import Wall from './components/Wall/Wall'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,6 +21,9 @@ function App() {
       <Header username="test" />
       <Router>
         <Switch>
+        <Route exact path="/" component={Join}/>
+        <Route exact path="/chat" component={Chat}/>
+        <Route exact path="/wall" component={Wall}/>
           <Route path="/user-list">
             <UserList />
           </Route>

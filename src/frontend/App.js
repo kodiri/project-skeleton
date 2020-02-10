@@ -4,6 +4,7 @@ import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin'
 import Join from './components/Join/Join'
 import Chat from './components/Chat/Chat'
+import Wall from './components/Wall/Wall'
 import './App.css';
 
 import {
@@ -18,9 +19,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-        <Route exact path="/" component={Join}/>
-        <Route exact path="/chat" component={Chat}/>
-        <Route exact path="/wall" component={Wall}/>
+          <Route exact path="/" component={Join} />
+          <Route exact path="/chat" component={Chat} />
+          <Route exact path="/wall" component={Wall} />
           <Route path="/user-list">
             <UserList />
           </Route>

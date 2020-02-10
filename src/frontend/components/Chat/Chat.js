@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
+import "./Chat.css"
 
 let socket;
 
@@ -28,7 +29,9 @@ const Chat = ({ location }) => {
     }, [ENDPOINT, location.search])
 
     return (
-        <h1>Chat</h1>
+        <div className="chat-container">
+            <h1>Chat</h1>
+        </div>
     )
 }
 

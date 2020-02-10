@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
 import UserList from './components/UserList';
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin'
 import Join from './components/Join/Join'
 import Chat from './components/Chat/Chat'
+import './App.css';
 
 import {
   BrowserRouter as Router,
@@ -18,8 +18,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" exact component={Join} />
-          <Route path="/chat" component={Chat} />
+        <Route exact path="/" component={Join}/>
+        <Route exact path="/chat" component={Chat}/>
+        <Route exact path="/wall" component={Wall}/>
           <Route path="/user-list">
             <UserList />
           </Route>

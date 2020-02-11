@@ -82,7 +82,7 @@ class UserLogin extends Component {
                                             onChange={this.saveToState}
                                             required />
                                     </div>
-                                    <button type='submit'><h3>Login</h3></button>
+                                    <button className='UserLoginButton' type='submit'><h3>Login</h3></button>
                                 </div>
                             </form>
                         )

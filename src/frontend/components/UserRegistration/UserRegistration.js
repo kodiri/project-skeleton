@@ -92,7 +92,7 @@ class UserRegistration extends Component {
                                             onChange={this.saveToState}
                                             required />
                                     </div>
-                                    <button type='submit'><h3>Register</h3></button>
+                                    <button className='UserRegistrationButton' type='submit'><h3>Register</h3></button>
                                 </div>
                             </form>
                         )

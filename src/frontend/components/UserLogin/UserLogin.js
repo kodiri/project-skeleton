@@ -58,31 +58,33 @@ class UserLogin extends Component {
                                     })
                                 }}>
                                 <div className='UserLoginOuterContainer'>
-                                    <h2>{this.state.name ? `Welcome ${this.state.name}` : ''}</h2>
-                                    <h1>User Login Form</h1>
-                                    <div className='Input-Container'>
-                                        <label htmlFor='email'>Email:</label>
-                                        <input
-                                            name='email'
-                                            className='Email'
-                                            type='email'
-                                            placeholder='example@example.com'
-                                            value={this.state.email}
-                                            onChange={this.saveToState}
-                                            required />
+                                    <div className='UserLoginInnerContainer'>
+                                        <h2>{this.state.name ? `Welcome ${this.state.name}` : ''}</h2>
+                                        <h1 className='heading'>User Login Form</h1>
+                                        <div>
+                                            <input
+                                                name='email'
+                                                className='EmailInput'
+                                                type='email'
+                                                placeholder='example@example.com'
+                                                value={this.state.email}
+                                                onChange={this.saveToState}
+                                                required 
+                                            />
+                                        </div>
+                                        <div>
+                                            <input
+                                                name='password'
+                                                className='PasswordInput mt-20'
+                                                type='password'
+                                                placeholder='password'
+                                                value={this.state.password}
+                                                onChange={this.saveToState}
+                                                required 
+                                            />
+                                        </div>
+                                        <button className='button mt-20' type='submit'>Login</button>
                                     </div>
-                                    <div className='Input-Container'>
-                                        <label htmlFor='password'>Password:</label>
-                                        <input
-                                            name='password'
-                                            className='Password'
-                                            type='password'
-                                            placeholder='password'
-                                            value={this.state.password}
-                                            onChange={this.saveToState}
-                                            required />
-                                    </div>
-                                    <button className='UserLoginButton' type='submit'><h3>Login</h3></button>
                                 </div>
                             </form>
                         )

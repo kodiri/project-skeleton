@@ -2,8 +2,9 @@ import React from 'react';
 import UserList from './components/UserList';
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin'
-import Join from './components/Join/Join'
-import Chat from './components/Chat/Chat'
+import Join from './components/ChatModule/Join/Join'
+import Chat from './components/ChatModule/Chat/Chat'
+import Wall from './components/Wall/Wall'
 import './App.css';
 
 import {

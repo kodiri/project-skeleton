@@ -5,11 +5,14 @@ import Listitems from './Listitems'
 export default class Wall extends React.Component {
     constructor(props){
         super();
-        this.state = {
+        this.state ={
             items: [], 
-            currentItem:{text: '', key: ''}}
-            this.handleInput = this.handleInput.bind(this);
-            this.addItem = this.addItem.bind(this);
+            currentItem:{text: '', key: ''}};
+
+            this.handleInput = this.handleInput.bind(this)
+            this.addItem = this.addItem.bind(this)
+            this.setUpdate = this.setUpdate.bind(this)
+            
         }
     
 
@@ -34,6 +37,15 @@ export default class Wall extends React.Component {
          }
              
      }
+     setUpdate(text, key) {
+         const items = this.state.items;
+         items.map(item =>{
+             if(item.key === key){
+                 item.text = text;
+             }
+         })
+         this.setState({ items: items })
+     }
     render() {
         return(
             <div className='Wall'>
@@ -47,7 +59,8 @@ export default class Wall extends React.Component {
                     type='submit'>Post</button>
                 </form>
             </header>
-            <Listitems items = {this.state.items} />
+            <Listitems items = {this.state.items} 
+            setUpdate = {this.setUpdate} />
             </div>
         );
     }

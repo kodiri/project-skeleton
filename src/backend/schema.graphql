@@ -15,7 +15,15 @@ type Mutation {
     ): User!
 }
 
+# type Mutation {
+#     postsubmit(
+#         text: String!
+#         likes: Float!
+#         owner: User!
+#     ): User!
+# }
+
 type Query {
     users: [User]!
-    me: User!
+    me: User
 }

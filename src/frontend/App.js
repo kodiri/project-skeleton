@@ -21,9 +21,8 @@ function App() {
       <Header username="test" />
       <Router>
         <Switch>
-        <Route exact path="/" component={Join}/>
-        <Route exact path="/chat" component={Chat}/>
-        <Route exact path="/wall" component={Wall}/>
+          <Route exact path="/chat" component={Join} />
+          <Route exact path="/wall" component={Wall} />
           <Route path="/user-list">
             <UserList />
           </Route>
@@ -33,6 +32,7 @@ function App() {
           <Route path="/login">
             <UserLogin />
           </Route>
+          <Route exact path="/" component={UserLogin} />
         </Switch>
       </Router>
     </div>

@@ -19,9 +19,9 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-        <Route exact path="/" component={Join}/>
-        <Route exact path="/chat" component={Chat}/>
-        <Route exact path="/wall" component={Wall}/>
+          <Route exact path="/" component={Join} />
+          <Route exact path="/chat" component={Chat} />
+          <Route exact path="/wall" component={Wall} />
           <Route path="/user-list">
             <UserList />
           </Route>

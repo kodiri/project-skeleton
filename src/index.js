@@ -4,6 +4,8 @@ import './index.css';
 import App from './frontend/App';
 import * as serviceWorker from './frontend/serviceWorker';
 
+const { addUser, removeUser, getUser, getUsersInRoom} = require('./backend/users')
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // const cache = new InMemoryCache();

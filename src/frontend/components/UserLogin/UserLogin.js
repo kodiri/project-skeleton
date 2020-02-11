@@ -57,7 +57,7 @@ class UserLogin extends Component {
                                         password: ""
                                     })
                                 }}>
-                                <div className='UserLogin-Container'>
+                                <div className='UserLoginOuterContainer'>
                                     <h2>{this.state.name ? `Welcome ${this.state.name}` : ''}</h2>
                                     <h1>User Login Form</h1>
                                     <div className='Input-Container'>

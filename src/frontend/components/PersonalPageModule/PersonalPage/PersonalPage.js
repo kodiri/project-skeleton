@@ -3,6 +3,7 @@ import './PersonalPage.css';
 import UserName from '../UserName/UserName'
 import CoverPicture from '../CoverPicture/CoverPicture'
 import ProfilePicture from '../ProfilePicture/ProfilePicture'
+import ActionBar from '../ActionBar/ActionBar'
 import GetUser from '../../UserList/GetUser'
 
 export default function PersonalPage(){
@@ -14,17 +15,6 @@ export default function PersonalPage(){
             <CoverPicture userName={userName} />
             <ProfilePicture userName={userName} />
             <ActionBar />
-        </div>
-    );
-}
-    
-function ActionBar() {
-    return (
-        <div className='actionBar'>
-            <button className='personalPageButton'>New Post</button>
-            <button className='personalPageButton'>Notifications</button>
-            <button className='personalPageButton'>Search</button>
-            <button className='personalPageButton'>Menu</button>
         </div>
     );
 }

@@ -1,4 +1,8 @@
-# import { User } from './generated/prisma.graphql'
+# import * from './generated/prisma.graphql'
+
+type SuccessMessage {
+  message: String
+}
 
 type Mutation {
     signup(
@@ -6,15 +10,15 @@ type Mutation {
         email: String!
         password: String!
     ): User!
-}
-
-type Mutation {
     signin(
         email: String!
         password: String!
     ): User!
+    signout: SuccessMessage
 }
+
 
 type Query {
     users: [User]!
+    me: User
 }

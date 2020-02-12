@@ -1,3 +1,7 @@
+type AggregatePost {
+  count: Int!
+}
+
 type AggregateUser {
   count: Int!
 }
@@ -6,9 +10,17 @@ type BatchPayload {
   count: Long!
 }
 
+scalar DateTime
+
 scalar Long
 
 type Mutation {
+  createPost(data: PostCreateInput!): Post!
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
+  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
+  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
+  deletePost(where: PostWhereUniqueInput!): Post
+  deleteManyPosts(where: PostWhereInput): BatchPayload!
   createUser(data: UserCreateInput!): User!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
   updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
@@ -40,7 +52,237 @@ enum Permission {
   PERMISSIONUPDATE
 }
 
+type Post {
+  id: ID!
+  text: String!
+  likes: Float!
+  createdAt: DateTime!
+  owner: User!
+}
+
+type PostConnection {
+  pageInfo: PageInfo!
+  edges: [PostEdge]!
+  aggregate: AggregatePost!
+}
+
+input PostCreateInput {
+  id: ID
+  text: String!
+  likes: Float!
+  owner: UserCreateOneWithoutPostsInput!
+}
+
+input PostCreateManyWithoutOwnerInput {
+  create: [PostCreateWithoutOwnerInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateWithoutOwnerInput {
+  id: ID
+  text: String!
+  likes: Float!
+}
+
+type PostEdge {
+  node: Post!
+  cursor: String!
+}
+
+enum PostOrderByInput {
+  id_ASC
+  id_DESC
+  text_ASC
+  text_DESC
+  likes_ASC
+  likes_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type PostPreviousValues {
+  id: ID!
+  text: String!
+  likes: Float!
+  createdAt: DateTime!
+}
+
+input PostScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  text: String
+  text_not: String
+  text_in: [String!]
+  text_not_in: [String!]
+  text_lt: String
+  text_lte: String
+  text_gt: String
+  text_gte: String
+  text_contains: String
+  text_not_contains: String
+  text_starts_with: String
+  text_not_starts_with: String
+  text_ends_with: String
+  text_not_ends_with: String
+  likes: Float
+  likes_not: Float
+  likes_in: [Float!]
+  likes_not_in: [Float!]
+  likes_lt: Float
+  likes_lte: Float
+  likes_gt: Float
+  likes_gte: Float
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
+}
+
+type PostSubscriptionPayload {
+  mutation: MutationType!
+  node: Post
+  updatedFields: [String!]
+  previousValues: PostPreviousValues
+}
+
+input PostSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PostWhereInput
+  AND: [PostSubscriptionWhereInput!]
+  OR: [PostSubscriptionWhereInput!]
+  NOT: [PostSubscriptionWhereInput!]
+}
+
+input PostUpdateInput {
+  text: String
+  likes: Float
+  owner: UserUpdateOneRequiredWithoutPostsInput
+}
+
+input PostUpdateManyDataInput {
+  text: String
+  likes: Float
+}
+
+input PostUpdateManyMutationInput {
+  text: String
+  likes: Float
+}
+
+input PostUpdateManyWithoutOwnerInput {
+  create: [PostCreateWithoutOwnerInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutOwnerInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutOwnerInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
+input PostUpdateManyWithWhereNestedInput {
+  where: PostScalarWhereInput!
+  data: PostUpdateManyDataInput!
+}
+
+input PostUpdateWithoutOwnerDataInput {
+  text: String
+  likes: Float
+}
+
+input PostUpdateWithWhereUniqueWithoutOwnerInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutOwnerDataInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutOwnerInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutOwnerDataInput!
+  create: PostCreateWithoutOwnerInput!
+}
+
+input PostWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  text: String
+  text_not: String
+  text_in: [String!]
+  text_not_in: [String!]
+  text_lt: String
+  text_lte: String
+  text_gt: String
+  text_gte: String
+  text_contains: String
+  text_not_contains: String
+  text_starts_with: String
+  text_not_starts_with: String
+  text_ends_with: String
+  text_not_ends_with: String
+  likes: Float
+  likes_not: Float
+  likes_in: [Float!]
+  likes_not_in: [Float!]
+  likes_lt: Float
+  likes_lte: Float
+  likes_gt: Float
+  likes_gte: Float
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  owner: UserWhereInput
+  AND: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  NOT: [PostWhereInput!]
+}
+
+input PostWhereUniqueInput {
+  id: ID
+}
+
 type Query {
+  post(where: PostWhereUniqueInput!): Post
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
+  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
   user(where: UserWhereUniqueInput!): User
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
   usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
@@ -48,6 +290,7 @@ type Query {
 }
 
 type Subscription {
+  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
 }
 
@@ -56,9 +299,11 @@ type User {
   name: String!
   email: String!
   password: String!
-  resetToken: String
-  resetTokenExpiry: Float
+  bio: String
+  picture: String
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
   permissions: [Permission!]!
+  createdAt: DateTime!
 }
 
 type UserConnection {
@@ -72,13 +317,29 @@ input UserCreateInput {
   name: String!
   email: String!
   password: String!
-  resetToken: String
-  resetTokenExpiry: Float
+  bio: String
+  picture: String
+  posts: PostCreateManyWithoutOwnerInput
   permissions: UserCreatepermissionsInput
+}
+
+input UserCreateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  connect: UserWhereUniqueInput
 }
 
 input UserCreatepermissionsInput {
   set: [Permission!]
+}
+
+input UserCreateWithoutPostsInput {
+  id: ID
+  name: String!
+  email: String!
+  password: String!
+  bio: String
+  picture: String
+  permissions: UserCreatepermissionsInput
 }
 
 type UserEdge {
@@ -95,10 +356,12 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
-  resetToken_ASC
-  resetToken_DESC
-  resetTokenExpiry_ASC
-  resetTokenExpiry_DESC
+  bio_ASC
+  bio_DESC
+  picture_ASC
+  picture_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type UserPreviousValues {
@@ -106,9 +369,10 @@ type UserPreviousValues {
   name: String!
   email: String!
   password: String!
-  resetToken: String
-  resetTokenExpiry: Float
+  bio: String
+  picture: String
   permissions: [Permission!]!
+  createdAt: DateTime!
 }
 
 type UserSubscriptionPayload {
@@ -133,8 +397,9 @@ input UserUpdateInput {
   name: String
   email: String
   password: String
-  resetToken: String
-  resetTokenExpiry: Float
+  bio: String
+  picture: String
+  posts: PostUpdateManyWithoutOwnerInput
   permissions: UserUpdatepermissionsInput
 }
 
@@ -142,13 +407,34 @@ input UserUpdateManyMutationInput {
   name: String
   email: String
   password: String
-  resetToken: String
-  resetTokenExpiry: Float
+  bio: String
+  picture: String
   permissions: UserUpdatepermissionsInput
+}
+
+input UserUpdateOneRequiredWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  update: UserUpdateWithoutPostsDataInput
+  upsert: UserUpsertWithoutPostsInput
+  connect: UserWhereUniqueInput
 }
 
 input UserUpdatepermissionsInput {
   set: [Permission!]
+}
+
+input UserUpdateWithoutPostsDataInput {
+  name: String
+  email: String
+  password: String
+  bio: String
+  picture: String
+  permissions: UserUpdatepermissionsInput
+}
+
+input UserUpsertWithoutPostsInput {
+  update: UserUpdateWithoutPostsDataInput!
+  create: UserCreateWithoutPostsInput!
 }
 
 input UserWhereInput {
@@ -208,28 +494,45 @@ input UserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
-  resetToken: String
-  resetToken_not: String
-  resetToken_in: [String!]
-  resetToken_not_in: [String!]
-  resetToken_lt: String
-  resetToken_lte: String
-  resetToken_gt: String
-  resetToken_gte: String
-  resetToken_contains: String
-  resetToken_not_contains: String
-  resetToken_starts_with: String
-  resetToken_not_starts_with: String
-  resetToken_ends_with: String
-  resetToken_not_ends_with: String
-  resetTokenExpiry: Float
-  resetTokenExpiry_not: Float
-  resetTokenExpiry_in: [Float!]
-  resetTokenExpiry_not_in: [Float!]
-  resetTokenExpiry_lt: Float
-  resetTokenExpiry_lte: Float
-  resetTokenExpiry_gt: Float
-  resetTokenExpiry_gte: Float
+  bio: String
+  bio_not: String
+  bio_in: [String!]
+  bio_not_in: [String!]
+  bio_lt: String
+  bio_lte: String
+  bio_gt: String
+  bio_gte: String
+  bio_contains: String
+  bio_not_contains: String
+  bio_starts_with: String
+  bio_not_starts_with: String
+  bio_ends_with: String
+  bio_not_ends_with: String
+  picture: String
+  picture_not: String
+  picture_in: [String!]
+  picture_not_in: [String!]
+  picture_lt: String
+  picture_lte: String
+  picture_gt: String
+  picture_gte: String
+  picture_contains: String
+  picture_not_contains: String
+  picture_starts_with: String
+  picture_not_starts_with: String
+  picture_ends_with: String
+  picture_not_ends_with: String
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

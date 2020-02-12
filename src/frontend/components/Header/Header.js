@@ -4,6 +4,7 @@ import {
     Link
 } from "react-router-dom";
 import User from '../User/User';
+import Signout from '../Signout/Signout';
 import styled from 'styled-components';
 
 
@@ -33,15 +34,21 @@ function Header(props) {
                             <Link to="/"><MenuItem>Home</MenuItem></Link>
                             <Link to="/chat"><MenuItem>Chat</MenuItem></Link>
                             {data ?
-                                <MenuItem>{data.me.name}</MenuItem> :
+                                (
+                                    <div>
+                                        <Signout />
+                                        <MenuItem>Logged as {data.me.name}</MenuItem>
+                                    </div>
+                                ) :
                                 <Link to="/login"><MenuItem>Login</MenuItem></Link>
                             }
                         </Nav>
                     </Router>
 
                 </Wrapper>
-            )}
-        </User>
+            )
+            }
+        </User >
     )
 }
 

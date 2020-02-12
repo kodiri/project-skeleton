@@ -9,6 +9,8 @@ type User {
   name: String!,
   email: String! @unique,
   password: String!,
+  bio: String,
+  picture: String,
   posts: [Post!]!,
   permissions: [Permission] @scalarList(strategy:RELATION),
   createdAt: DateTime! @createdAt,

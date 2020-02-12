@@ -20,8 +20,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header username="test" />
       <Router>
+        <Header username="test" />
         <Switch>
           <Route exact path="/join" component={Join} />
           <Route exact path="/chat" component={Chat} />

@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
-import UserList from './components/UserList';
+import UserList from './components/UserList/UserList';
 import Header from './components/Header/Header';
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin'
-import Join from './components/Join/Join'
-import Chat from './components/Chat/Chat'
+import Join from './components/ChatModule/Join/Join'
+import Chat from './components/ChatModule/Chat/Chat'
 import Wall from './components/Wall/Wall'
+import PersonalPage from './components/PersonalPageModule/PersonalPage/PersonalPage';
+import './App.css';
 
 import {
   BrowserRouter as Router,
@@ -21,8 +23,10 @@ function App() {
       <Header username="test" />
       <Router>
         <Switch>
-          <Route exact path="/chat" component={Join} />
+          <Route exact path="/join" component={Join} />
+          <Route exact path="/chat" component={Chat} />
           <Route exact path="/wall" component={Wall} />
+          <Route exact path="/PersonalPage" component={PersonalPage} />
           <Route path="/user-list">
             <UserList />
           </Route>

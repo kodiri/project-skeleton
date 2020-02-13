@@ -1,13 +1,18 @@
 import React from 'react';
+import UserBio from '../UserBio/UserBio'
 import './ProfilePicture.css';
-import GetUser from '../../UserList/GetUser'
 
-export default function ProfilePicture({ userName }) {
-    let profilePicture = GetUser().find(user => user.userName === userName).profilePicture;
+export default function ProfilePicture({ user }) {
+    let profilePicture = user.profilePicture;
 
     return (
-        <div className='profilePicture'>
-            <img id='profilePicture' src={profilePicture} alt='' />
+        <div className='profilePictureAndBio'>
+            <div className='profilePicture'>
+                <img id='profilePicture' src={profilePicture} alt='' />
+            </div>
+            <div className='userBio'>
+                <UserBio user={user} />
+            </div>
         </div>
     );
 }

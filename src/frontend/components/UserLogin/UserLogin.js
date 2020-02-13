@@ -3,6 +3,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { Mutation, ApolloProvider } from 'react-apollo';
+import { Redirect } from "react-router-dom";
 import gql from 'graphql-tag';
 import './UserLogin.css';
 
@@ -30,7 +31,8 @@ class UserLogin extends Component {
         super();
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            toProfilePage: false
         }
     }
 
@@ -39,6 +41,10 @@ class UserLogin extends Component {
     }
 
     render() {
+
+        if (this.state.toProfilePage === true) {
+            return <Redirect to='/PersonalPage' />
+        }
 
         return (
             <ApolloProvider client={client}>
@@ -49,17 +55,14 @@ class UserLogin extends Component {
                                 method='post'
                                 onSubmit={async e => {
                                     e.preventDefault();
-                                    const user = await signin();
-                                    const { name } = user.data.signin;
+                                    await signin();
                                     this.setState({
-                                        name,
-                                        email: "",
-                                        password: ""
+                                        toProfilePage: true
                                     })
+
                                 }}>
                                 <div className='UserLoginOuterContainer'>
                                     <div className='UserLoginInnerContainer'>
-                                        <h2>{this.state.name ? `Welcome ${this.state.name}` : ''}</h2>
                                         <h1 className='heading'>User Login Form</h1>
                                         <div>
                                             <input
@@ -69,7 +72,7 @@ class UserLogin extends Component {
                                                 placeholder='example@example.com'
                                                 value={this.state.email}
                                                 onChange={this.saveToState}
-                                                required 
+                                                required
                                             />
                                         </div>
                                         <div>
@@ -80,11 +83,12 @@ class UserLogin extends Component {
                                                 placeholder='password'
                                                 value={this.state.password}
                                                 onChange={this.saveToState}
-                                                required 
+                                                required
                                             />
                                         </div>
                                         <button className='button mt-20' type='submit'>Login</button>
                                     </div>
+                                    <button className='UserLoginButton' type='submit'><h3>Login</h3></button>
                                 </div>
                             </form>
                         )

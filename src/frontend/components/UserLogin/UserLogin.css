@@ -35,6 +35,11 @@
       width: 100%;
   }
   
-  .mt-20 {
-    margin-top: 20px;
+  .UserLoginButton {
+    margin-top: 2vh;
+    padding: 0 1vw;
+    background-color: blue;
+    color: white;
+    border: transparent;
+    border-radius: 10px;
   }

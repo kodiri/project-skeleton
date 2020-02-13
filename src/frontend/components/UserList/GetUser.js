@@ -11,7 +11,7 @@ import tesla from '../../assets/cover pictures/tesla.jpg';
 
 export default function GetUser() {
     return [
-        { userName: 'Bill Gates', profilePicture: bill, coverPicture: microsoft },
+        { userName: 'Bill Gates', profilePicture: bill, coverPicture: microsoft, userBio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the" },
         { userName: 'Jeff Besos', profilePicture: jeff, coverPicture: amazon },
         { userName: 'Elon Musk', profilePicture: elon, coverPicture: tesla },
     ];

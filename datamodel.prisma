@@ -9,7 +9,17 @@ type User {
   name: String!,
   email: String! @unique,
   password: String!,
-  resetToken: String,
-  resetTokenExpiry: Float,
-  permissions: [Permission] @scalarList(strategy:RELATION)
+  bio: String,
+  picture: String,
+  posts: [Post!]!,
+  permissions: [Permission] @scalarList(strategy:RELATION),
+  createdAt: DateTime! @createdAt,
+}
+
+type Post {
+  id: ID! @id,
+  text: String!,
+  likes: Float!,
+  createdAt: DateTime! @createdAt,
+  owner: User! @relation(link: INLINE),
 }

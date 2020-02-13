@@ -3,6 +3,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { Mutation, ApolloProvider } from 'react-apollo';
+import { Redirect } from "react-router-dom";
 import gql from 'graphql-tag';
 import './UserLogin.css';
 
@@ -30,7 +31,8 @@ class UserLogin extends Component {
         super();
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            toProfilePage: false
         }
     }
 
@@ -39,6 +41,10 @@ class UserLogin extends Component {
     }
 
     render() {
+
+        if (this.state.toProfilePage === true) {
+            return <Redirect to='/PersonalPage' />
+        }
 
         return (
             <ApolloProvider client={client}>
@@ -49,38 +55,38 @@ class UserLogin extends Component {
                                 method='post'
                                 onSubmit={async e => {
                                     e.preventDefault();
-                                    const user = await signin();
-                                    const { name } = user.data.signin;
+                                    await signin();
                                     this.setState({
-                                        name,
-                                        email: "",
-                                        password: ""
+                                        toProfilePage: true
                                     })
+
                                 }}>
-                                <div className='UserLogin-Container'>
-                                    <h2>{this.state.name ? `Welcome ${this.state.name}` : ''}</h2>
-                                    <h1>User Login Form</h1>
-                                    <div className='Input-Container'>
-                                        <label htmlFor='email'>Email:</label>
-                                        <input
-                                            name='email'
-                                            className='Email'
-                                            type='email'
-                                            placeholder='example@example.com'
-                                            value={this.state.email}
-                                            onChange={this.saveToState}
-                                            required />
-                                    </div>
-                                    <div className='Input-Container'>
-                                        <label htmlFor='password'>Password:</label>
-                                        <input
-                                            name='password'
-                                            className='Password'
-                                            type='password'
-                                            placeholder='password'
-                                            value={this.state.password}
-                                            onChange={this.saveToState}
-                                            required />
+                                <div className='UserLoginOuterContainer'>
+                                    <div className='UserLoginInnerContainer'>
+                                        <h1 className='heading'>User Login Form</h1>
+                                        <div>
+                                            <input
+                                                name='email'
+                                                className='EmailInput'
+                                                type='email'
+                                                placeholder='example@example.com'
+                                                value={this.state.email}
+                                                onChange={this.saveToState}
+                                                required
+                                            />
+                                        </div>
+                                        <div>
+                                            <input
+                                                name='password'
+                                                className='PasswordInput mt-20'
+                                                type='password'
+                                                placeholder='password'
+                                                value={this.state.password}
+                                                onChange={this.saveToState}
+                                                required
+                                            />
+                                        </div>
+                                        <button className='button mt-20' type='submit'>Login</button>
                                     </div>
                                     <button className='UserLoginButton' type='submit'><h3>Login</h3></button>
                                 </div>

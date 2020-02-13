@@ -4,10 +4,18 @@ import './ActionBar.css';
 export default function ActionBar() {
     return (
         <div className='actionBar'>
-            <button className='personalPageButton'>New Post</button>
-            <button className='personalPageButton'>Notifications</button>
-            <button className='personalPageButton'>Search</button>
-            <button className='personalPageButton'>Menu</button>
+            <button className='personalPageButton'>
+                <img src={require('../../../assets/icons/newpost.svg')} alt='newpost' />
+            </button>
+            <button className='personalPageButton'>
+                <img src={require('../../../assets/icons/notification.svg')} alt='notification' />
+            </button>
+            <button className='personalPageButton'>
+                <img src={require('../../../assets/icons/search.svg')} alt='search' />
+            </button>
+            <button className='personalPageButton'>
+                <img src={require('../../../assets/icons/menu.svg')} alt='menu' />
+            </button>
         </div>
     );
 }

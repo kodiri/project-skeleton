@@ -1,13 +1,13 @@
 import React from 'react';
 import './UserName.css';
 
-export default function UserName({ userName }) {
-
+export default function UserName({ user }) {
+    let userName = user.userName;
     return (
         <div className='userName'>
-            <h3>
+            <div>
                 {userName}
-            </h3>
+            </div>
         </div>
     );
 }

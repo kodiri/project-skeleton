@@ -93,6 +93,29 @@ class UserRegistration extends Component {
                                         </div>
                                         <button className='button mt-20' type='submit'>Register</button>
                                     </div>
+                                    <div className='Input-Container'>
+                                        <label htmlFor='email'>Email:</label>
+                                        <input
+                                            name='email'
+                                            className='Email'
+                                            type='email'
+                                            placeholder='example@example.com'
+                                            value={this.state.email}
+                                            onChange={this.saveToState}
+                                            required />
+                                    </div>
+                                    <div className='Input-Container'>
+                                        <label htmlFor='password'>Password:</label>
+                                        <input
+                                            name='password'
+                                            className='Password'
+                                            type='password'
+                                            placeholder='password'
+                                            value={this.state.password}
+                                            onChange={this.saveToState}
+                                            required />
+                                    </div>
+                                    <button className='UserRegistrationButton' type='submit'><h3>Register</h3></button>
                                 </div>
                             </form>
                         )

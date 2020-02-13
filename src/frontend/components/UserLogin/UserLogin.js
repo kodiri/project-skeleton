@@ -88,6 +88,7 @@ class UserLogin extends Component {
                                         </div>
                                         <button className='button mt-20' type='submit'>Login</button>
                                     </div>
+                                    <button className='UserLoginButton' type='submit'><h3>Login</h3></button>
                                 </div>
                             </form>
                         )

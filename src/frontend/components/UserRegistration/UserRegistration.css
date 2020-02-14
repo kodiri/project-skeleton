@@ -14,7 +14,7 @@
     width: 15vw;
   }
   
-  button {
+  .UserRegistrationButton {
     margin-top: 2vh;
     padding: 0 1vw;
     background-color: blue;

@@ -1,20 +1,41 @@
-.UserLogin-Container {
-    margin: 40vh 0;
+.UserLoginOuterContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  align-items: center;
+  background-color: #1A1A1D;
+}
+.UserLoginInnerContainer {
+  width: 20%;
+}
+  
+  .EmailInput, .PasswordInput {
+    border-radius: 0;
+    padding: 15px 20px;
+    width: 100%;
   }
   
-  .Input-Container {
-    margin-top: 2vh;
-    align-items: right;
-    width: 57vw;
-    display: flex;
-    justify-content: flex-end;
+  .heading {
+    color: white;
+    font-size: 2.5em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
   }
   
-  input {
-    width: 15vw;
+  .button {
+      color: #fff !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #2979FF;
+      padding: 20px;
+      border-radius: 5px;
+      display: inline-block;
+      border: none;
+      width: 100%;
   }
   
-  button {
+  .UserLoginButton {
     margin-top: 2vh;
     padding: 0 1vw;
     background-color: blue;

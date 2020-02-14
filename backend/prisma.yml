@@ -1,4 +1,5 @@
-endpoint: ${env:PRISMA_ENDPOINT}
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://project-skeleton-ef0d74e0b6.herokuapp.com/skeleton-prod/prod
 datamodel: datamodel.prisma
 secret: ${env:PRISMA_SECRET}
 hooks:
@@ -6,4 +7,4 @@ hooks:
       - graphql get-schema -p prisma
 generate:
    - generator: graphql-schema
-     output: ./src/backend/generated/prisma.graphql
+     output: ./src/generated/prisma.graphql

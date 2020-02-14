@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './frontend/App';
-import * as serviceWorker from './frontend/serviceWorker';
-
-const { addUser, removeUser, getUser, getUsersInRoom} = require('./backend/users')
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

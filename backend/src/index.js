@@ -7,21 +7,21 @@ const server = createServer();
 
 //socketio requirements for chat app
 const express = require('express');
-const socketio = require('socket.io');
-const io = socketio(server);
+// const socketio = require('socket.io');
+// const io = socketio(server);
 const router = require('./router');
 
-const app = express();
+// const app = express();
 
-app.use(router);
+// app.use(router);
 
-io.on('connection', (socket) => {
-    console.log('We have a new connection!');
+// io.on('connection', (socket) => {
+//     console.log('We have a new connection!');
 
-    socket.on('disconnect', () => {
-        console.log('User has left!');
-    })
-})
+//     socket.on('disconnect', () => {
+//         console.log('User has left!');
+//     })
+// })
 //end of socketio requirements for chat app
 
 server.express.use(cookieParser());

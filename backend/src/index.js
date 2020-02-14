@@ -9,7 +9,6 @@ const server = createServer();
 const express = require('express');
 // const socketio = require('socket.io');
 // const io = socketio(server);
-const router = require('./router');
 
 // const app = express();
 

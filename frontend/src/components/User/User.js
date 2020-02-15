@@ -10,7 +10,7 @@ import { endpoint, prodEndpoint } from '../../config';
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
+    uri: prodEndpoint,
     credentials: 'include'
   }),
 });

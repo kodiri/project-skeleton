@@ -1,6 +1,7 @@
 # endpoint: https://project-skeleton-ef0d74e0b6.herokuapp.com/skeleton-prod/prod
 endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.prisma
+secret: ${env:PRISMA_SECRET}
 hooks:
   post-deploy:
       - graphql get-schema -p prisma

@@ -5,24 +5,6 @@ const db = require('./db');
 const createServer = require('./createServer');
 const server = createServer();
 
-//socketio requirements for chat app
-const express = require('express');
-// const socketio = require('socket.io');
-// const io = socketio(server);
-
-// const app = express();
-
-// app.use(router);
-
-// io.on('connection', (socket) => {
-//     console.log('We have a new connection!');
-
-//     socket.on('disconnect', () => {
-//         console.log('User has left!');
-//     })
-// })
-//end of socketio requirements for chat app
-
 server.express.use(cookieParser());
 
 server.express.use((req, res, next) => {
@@ -47,7 +29,7 @@ server.express.use(async (req, res, next) => {
 server.start({
     cors: {
         credentials: true,
-        origin: process.env.FRONTEND_URL
+        origin: [process.env.FRONTEND_URL, "http://localhost:3000/"]
     }
 }, deets => {
     console.log(`Server is now running on port http://localhost:${deets.port}`)

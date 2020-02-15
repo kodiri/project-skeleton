@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
+import { endpoint, prodEndpoint } from '../../config';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: "http://localhost:4444/",
+    uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
     credentials: 'include'
   }),
 });

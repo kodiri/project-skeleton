@@ -5,11 +5,12 @@ import { HttpLink } from 'apollo-link-http';
 import { Mutation, ApolloProvider } from 'react-apollo';
 import gql from 'graphql-tag';
 import './UserRegistration.css';
+import { endpoint, prodEndpoint } from '../../config';
 
 const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-        uri: "http://localhost:4444/",
+        uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
         credentials: 'include'
     }),
 });

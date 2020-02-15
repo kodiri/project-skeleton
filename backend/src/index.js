@@ -45,7 +45,6 @@ server.express.use(async (req, res, next) => {
 });
 
 server.start({
-    // port: process.env.NODE_PORT,
     cors: {
         credentials: true,
         origin: process.env.FRONTEND_URL

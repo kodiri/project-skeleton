@@ -27,7 +27,6 @@ const User = props => (
   <ApolloProvider client={client}>
     <Query {...props} query={CURRENT_USER_QUERY}>
       {payload => props.children(payload)}
-
     </Query>
   </ApolloProvider>
 );

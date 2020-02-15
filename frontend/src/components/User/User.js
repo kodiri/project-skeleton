@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
+import { endpoint, prodEndpoint } from '../../config';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: "http://localhost:4444/",
+    uri: prodEndpoint,
     credentials: 'include'
   }),
 });
@@ -26,7 +27,6 @@ const User = props => (
   <ApolloProvider client={client}>
     <Query {...props} query={CURRENT_USER_QUERY}>
       {payload => props.children(payload)}
-
     </Query>
   </ApolloProvider>
 );

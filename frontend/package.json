@@ -2,9 +2,6 @@
   "name": "front-end",
   "version": "0.1.0",
   "private": true,
-  "name": "backend",
-  "version": "0.1.0",
-  "private": true,
   "engines": {
     "node": "v12.14.0",
     "npm": "6.13.4"
@@ -35,18 +32,9 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.1",
     "socket.io": "^2.3.0",
-    "uws": "^100.0.1"
-  },
-  "scripts": {
-    "start": "nodemon -e js,graphql -x node src/index.js",
-    "deploy": "prisma deploy --env-file .env",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.1",
-    "socket.io-client": "^2.3.0",
-    "styled-components": "^5.0.1"
+    "uws": "^100.0.1",
+    "styled-components": "^5.0.1",
+    "react-router-dom": "^5.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

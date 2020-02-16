@@ -29,7 +29,7 @@ server.express.use(async (req, res, next) => {
 
 server.start({
     cors: {
-        credentials: true,
+        credentials: true, // Unsecure
         origin: process.env.FRONTEND_URL
     }
 }, deets => {

@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import UserRegistration from './components/UserRegistration/UserRegistration'
 import UserLogin from './components/UserLogin/UserLogin';
 import Join from './components/ChatModule/Join/Join';
-import Chat from './components/ChatModule/Chat/Chat';
+// import Chat from './components/ChatModule/Chat/Chat';
 import Wall from './components/Wall/Wall';
 import UserProfile from './components/UserProfile/UserProfile';
 import PersonalPage from './components/PersonalPageModule/PersonalPage/PersonalPage';
@@ -23,7 +23,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/join" component={Join} />
-          <Route exact path="/chat" component={Chat} />
+          {/* <Route exact path="/chat" component={Chat} /> */}
           <Route exact path="/wall" component={Wall} />
           <Route path="/profile/:name">
             <UserProfile />

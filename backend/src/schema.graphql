@@ -20,6 +20,6 @@ type Mutation {
 
 type Query {
     users: [User]!
+    user(name: String!): User
     me: User
-    getUser(name: String!): User
 }

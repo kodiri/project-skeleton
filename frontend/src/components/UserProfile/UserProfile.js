@@ -19,7 +19,7 @@ class UserProfile extends Component {
     render() {
         return (
             <ApolloProvider client={client}>
-                <Query query={GET_USER_QUERY} variables={name}>
+                <Query query={GET_USER_QUERY}>
                     {({ data }, loading, error) => {
                         return (
                             <div>

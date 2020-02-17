@@ -8,7 +8,8 @@ console.log(process.env.NODE_ENV);
 export const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-        uri: process.env.NODE_ENV === "development" ? devEndpoint : prodEndpoint,
+        // uri: process.env.NODE_ENV === "development" ? devEndpoint : prodEndpoint,
+        uri: prodEndpoint,
         credentials: 'include'
     }),
 });

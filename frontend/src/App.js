@@ -20,13 +20,13 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Header /> */}
+        <Header />
         <Switch>
           <Route exact path="/join" component={Join} />
           <Route exact path="/chat" component={Chat} />
           <Route exact path="/wall" component={Wall} />
-          <Route exact path="/wes">
-            <UserProfile name="wes" />
+          <Route path="/profile/:name">
+            <UserProfile />
           </Route>
           <Route exact path="/PersonalPage" component={PersonalPage} />
           <Route path="/register">

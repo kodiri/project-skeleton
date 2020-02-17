@@ -1,42 +1,51 @@
 import React, { Component } from 'react';
-import { Query, ApolloProvider } from 'react-apollo';
+import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import PropTypes from 'prop-types';
-import { client } from '../../utils/Client';
-
+import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 
 const GET_USER_QUERY = gql`
   query($name: String!) {
     getUser(name: $name) {
-      id
+        name
+        id
+        bio
     }
   }
 `;
 
+const Wrapper = styled.div`
+  color: white;
+`;
+
 class UserProfile extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            name: "dumbo",
-        }
-    }
-
     render() {
+        const name = this.props.match.params.name;
         return (
-            <ApolloProvider client={client}>
-                <Query query={GET_USER_QUERY} variables={{ name: this.state.name }}>
+            <Wrapper>
+                <Query query={GET_USER_QUERY} variables={{ name }}>
                     {({ data }, loading, error) => {
+                        if (loading) return <p>Loading...</p>;
+                        if (error) return <p>Error: {error.message}</p>;
+                        const userData = data?.getUser;
                         return (
-                            <div>
-                                {data ? console.log(data) : console.log("no data")}
-                            </div>
+                            data?.getUser ?
+                                <div>
+                                    <p>Name: {userData.name}</p>
+                                    <p>Id: {userData.id}</p>
+                                    <p>Bio: {userData.bio}</p>
+                                </div>
+                                : null
                         )
                     }}
                 </Query>
-            </ApolloProvider >
+            </Wrapper>
         );
-    }
-};
+    };
 
-export default UserProfile;
+    newMethod() {
+        return <div>Loading...</div>;
+    }
+}
+
+export default withRouter(UserProfile);

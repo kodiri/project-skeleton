@@ -37,7 +37,11 @@ function Header(props) {
                                 (
                                     <div>
                                         <Signout />
-                                        <MenuItem>Logged as {data.me.name}</MenuItem>
+                                        {data?.me ?
+                                            <MenuItem>Logged as {data.me.name}</MenuItem>
+                                            :
+                                            null
+                                        }
                                     </div>
                                 ) :
                                 <Link to="/login"><MenuItem>Login</MenuItem></Link>

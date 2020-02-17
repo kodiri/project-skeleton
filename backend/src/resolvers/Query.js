@@ -7,9 +7,9 @@ const Query = {
         return ctx.db.query.user({ where: { id: userId } }, info);
     },
     async getUser(parent, args, ctx, info) {
-        const userName = await ctx.request.name;
+        const userName = await args.name;
         console.log("Username", userName);
-        return ctx.db.query.user(
+        return ctx.db.query.users(
             {
                 where: { name: userName },
             },

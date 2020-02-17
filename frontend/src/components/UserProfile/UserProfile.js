@@ -9,26 +9,32 @@ const GET_USER_QUERY = gql`
   query($name: String!) {
     getUser(name: $name) {
       id
-      bio
     }
   }
 `;
 
 class UserProfile extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            name: "dumbo",
+        }
+    }
+
     render() {
         return (
             <ApolloProvider client={client}>
-                <Query query={GET_USER_QUERY}>
+                <Query query={GET_USER_QUERY} variables={{ name: this.state.name }}>
                     {({ data }, loading, error) => {
                         return (
                             <div>
-                                {data ? console.log(data) : null}
+                                {data ? console.log(data) : console.log("no data")}
                             </div>
                         )
                     }}
                 </Query>
-            </ApolloProvider>
+            </ApolloProvider >
         );
     }
 };

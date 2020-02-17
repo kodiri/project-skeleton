@@ -1,5 +1,5 @@
-#endpoint: ${env:PRISMA_ENDPOINT}
-endpoint: https://project-skeleton-ef0d74e0b6.herokuapp.com/skeleton-prod/prod
+endpoint: ${env:PRISMA_ENDPOINT}
+# endpoint: https://project-skeleton-ef0d74e0b6.herokuapp.com/skeleton-prod/prod
 datamodel: datamodel.prisma
 hooks:
   post-deploy:

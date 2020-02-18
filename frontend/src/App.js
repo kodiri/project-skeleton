@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
-import UserRegistration from './components/UserRegistration/UserRegistration'
-import UserLogin from './components/UserLogin/UserLogin';
-import Join from './components/ChatModule/Join/Join';
+import Header from './components/Header';
+import UserProfile from './components/UserProfile';
+import UserRegistration from './components/RegistrationForm'
+import UserLogin from './components/UserLogin';
+import Join from './components/ChatForm';
 // import Chat from './components/ChatModule/Chat/Chat';
-import Wall from './components/Wall/Wall';
-import UserProfile from './components/UserProfile/UserProfile';
-import PersonalPage from './components/PersonalPageModule/PersonalPage/PersonalPage';
+import Wall from './components/Wall';
 
 import {
   BrowserRouter as Router,
@@ -28,7 +27,6 @@ function App() {
           <Route path="/profile/:name">
             <UserProfile />
           </Route>
-          <Route exact path="/PersonalPage" component={PersonalPage} />
           <Route path="/register">
             <UserRegistration />
           </Route>
@@ -38,7 +36,7 @@ function App() {
           <Route exact path="/" component={UserLogin} />
         </Switch>
       </Router>
-    </div >
+    </div>
   );
 }
 

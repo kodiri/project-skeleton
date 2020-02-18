@@ -1,14 +1,16 @@
 body {
     background-color: black;
+};
 
-}
+/* WALL STYLES */
+
 .Wall {
     background-color: white;
     min-height: 650px;
     width: 600px;
     margin: 40px auto;
 
-}
+};
 
 .userWall input {
     background-color: rgb(27, 159, 159);
@@ -19,16 +21,16 @@ body {
     margin: 20px;
     font-size: 20px;
     border-radius: 10px;
-    color: white;
-    
-}
+    color: white;  
+};
 
 .userWall input::placecholder{
     color: rgb(240, 200, 22)
-}
+};
+
 .userWall input:focus, .userWall button:focus {
     outline: none;
-} ;
+};
 
 .userWall button {
     height: 50px ;
@@ -39,4 +41,20 @@ body {
     cursor: pointer;
     color: white;
 
+}
+
+
+/* LISTITEM STYLES */
+
+.list {
+    color: #fff;
+    width: 300px;
+    background-color: skyblue;
+    height: 50px;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.list p {
+    padding: 12px; 
 }

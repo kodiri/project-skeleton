@@ -45,7 +45,9 @@ const Mutations = {
         ctx.response.clearCookie('token');
         return { message: 'Goodbye!' };
     },
+    async updateDetails(parent, args, ctx, info) {
 
+    }
 
 }
 

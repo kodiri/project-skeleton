@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import './UserRegistration.css';
-import { endpoint, prodEndpoint } from '../../config';
+import './styles/RegistrationForm.css';
 
 const SIGNUP_MUTATION = gql`
     mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
@@ -15,7 +14,6 @@ const SIGNUP_MUTATION = gql`
 `;
 
 class UserRegistration extends Component {
-
     constructor() {
         super();
         this.state = {
@@ -68,7 +66,7 @@ class UserRegistration extends Component {
                                             onChange={this.saveToState}
                                             required />
                                     </div>
-                                    <div className='Input-Container'>
+                                    <div className='input-container'>
                                         <label className='PasswordLabel' htmlFor='password'>Password:</label>
                                         <input
                                             name='password'
@@ -81,7 +79,7 @@ class UserRegistration extends Component {
                                     </div>
                                     <button className='button mt-20' type='submit'>Register</button>
                                 </div>
-                                <div className='Input-Container'>
+                                <div className='input-container'>
                                     <label htmlFor='email'>Email:</label>
                                     <input
                                         name='email'
@@ -92,7 +90,7 @@ class UserRegistration extends Component {
                                         onChange={this.saveToState}
                                         required />
                                 </div>
-                                <div className='Input-Container'>
+                                <div className='input-container'>
                                     <label htmlFor='password'>Password:</label>
                                     <input
                                         name='password'
@@ -103,7 +101,7 @@ class UserRegistration extends Component {
                                         onChange={this.saveToState}
                                         required />
                                 </div>
-                                <button className='UserRegistrationButton' type='submit'><h3>Register</h3></button>
+                                <button className='registration-button' type='submit'><h3>Register</h3></button>
                             </div>
                         </form>
                     )

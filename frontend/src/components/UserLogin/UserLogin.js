@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { Redirect } from "react-router-dom";
 import gql from 'graphql-tag';
-import './styles/UserLogin.css';
+import './UserLogin.css';
+import { endpoint, prodEndpoint } from '../../config';
 
 const SIGNIN_MUTATION = gql`
     mutation SIGNIN_MUTATION($email: String!, $password: String!) {
@@ -31,7 +32,7 @@ class UserLogin extends Component {
 
     render() {
         if (this.state.toProfilePage === true) {
-            return <Redirect to="/profile" />
+            return <Redirect to='/PersonalPage' />
         }
         return (
             <Mutation mutation={SIGNIN_MUTATION} variables={this.state}>

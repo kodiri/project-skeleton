@@ -7,6 +7,7 @@ import UserLogin from './components/UserLogin';
 import Join from './components/ChatForm';
 // import Chat from './components/ChatModule/Chat/Chat';
 import Wall from './components/Wall';
+import HomeBody from './components/HomeBody';
 
 import {
   BrowserRouter as Router,
@@ -33,7 +34,7 @@ function App() {
           <Route path="/login">
             <UserLogin />
           </Route>
-          <Route exact path="/" component={UserLogin} />
+          <Route exact path="/" component={HomeBody} />
         </Switch>
       </Router>
     </div >

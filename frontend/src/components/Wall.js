@@ -1,8 +1,7 @@
 import React from 'react';
-import './Wall.css'
-import Listitems from './Listitems'
+import './styles/Wall.css'
 
-export default class Wall extends React.Component {
+class Wall extends React.Component {
     constructor(props) {
         super();
         this.state = {
@@ -13,12 +12,12 @@ export default class Wall extends React.Component {
         this.addItem = this.addItem.bind(this);
     }
 
-
     handleInput(e) {
         this.setState({
             currentItem: { text: e.target.value, key: Date.now() }
         })
     }
+
     addItem(e) {
         e.preventDefault(); //prevent default behavior//
         const newItem = this.state.currentItem;
@@ -33,8 +32,8 @@ export default class Wall extends React.Component {
                 }
             })
         }
-
     }
+
     render() {
         return (
             <div className='Wall'>
@@ -48,8 +47,26 @@ export default class Wall extends React.Component {
                             type='submit'>Post</button>
                     </form>
                 </header>
-                <Listitems items={this.state.items} />
+                <ListItems items={this.state.items} />
             </div>
         );
     }
 }
+
+function ListItems(props) {
+    const items = props.items;
+    const listItems = items
+        .map(item => {
+            return (
+                <div className='list' key='item.key'>
+                    <p>{item.text}</p>
+                </div>)
+        })
+
+    return (
+        <div>{listItems}</div>
+    );
+}
+
+
+export default Wall;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Join.css'
+import './styles/ChatForm.css'
 
 const Join = () => {
     const [name, setName] = useState('');

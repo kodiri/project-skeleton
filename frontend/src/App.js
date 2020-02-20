@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <Route exact path="/join" component={Join} />
           <Route exact path="/chat" component={Chat} />
@@ -31,9 +31,7 @@ function App() {
           <Route path="/register">
             <UserRegistration />
           </Route>
-          <Route path="/login">
-            <UserLogin />
-          </Route>
+          <Route exact path="/login" component={UserLogin} />
           <Route exact path="/" component={HomeBody} />
         </Switch>
       </Router>

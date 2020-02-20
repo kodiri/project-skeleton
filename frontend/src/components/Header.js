@@ -8,6 +8,8 @@ import Signout from './SignoutForm';
 import './styles/Header.css';
 
 function Header(props) {
+
+
     return (
         <User>
             {({ data }) => (

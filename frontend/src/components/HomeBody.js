@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     BrowserRouter as Router,
     Link,
 } from "react-router-dom";
+import './styles/HomeBody.css'
 
-class HomeBody extends Component {
+class HomeBody extends React.Component {
     render() {
         return (
-            <div>
+            <div className='homebody-outer-container'>
+                <div className='homebody-inner-container'>
                 <div className='welcomeMessage'>
                     <h1>Welcome...</h1>
                 </div>
-                <Router>
+                <div className='homebody-buttons'>
                     <Link to="/login">
-                        <button><h3>Log In</h3></button>
+                        <button className='homebody-button' id='login'><h3>Log In</h3></button>
                     </Link>
                     <Link to="/register">
-                        <button><h3>Sign Up</h3></button>
+                        <button className='homebody-button' id='register'><h3>Sign Up</h3></button>
                     </Link>
-                </Router>
+                </div>
                 <div className='homeBodyText'>
                     <h3>What we do</h3>
                     <h3>How it works</h3>
                     <h3>Why join</h3>
+                </div>
                 </div>
             </div>
         );

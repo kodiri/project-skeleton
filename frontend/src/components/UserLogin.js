@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import gql from 'graphql-tag';
 import email from '../assets/icons/email.svg'
 import password from '../assets/icons/password.svg'
@@ -75,8 +75,12 @@ class UserLogin extends Component {
                                             required
                                         />
                                     </div>
-                                    <button className='button mt-20' type='submit'><h3>Login</h3></button>
-                                    <h5>Back</h5>
+                                    <button className='button mt-20' type='submit'>
+                                        <h3>Log in</h3>
+                                    </button>
+                                    <Link to="/">
+                                        <h5>Back</h5>
+                                    </Link>
                                 </div>
                             </div>
                         </form>

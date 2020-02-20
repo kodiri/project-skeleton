@@ -23,13 +23,7 @@
   align-items: center;
 }
 
-.login.email {
-  display: grid;
-  grid-template-columns: 1fr 10fr;
-  grid-gap: 2vw;
-}
-
-.login.password {
+.login.email, .login.password {
   display: grid;
   grid-template-columns: 1fr 10fr;
   grid-gap: 2vw;
@@ -59,19 +53,14 @@
   .button h3 {
     margin: 0;
   }
-  
-  .UserLoginButton {
-    margin-top: 2vh;
-    padding: 0 1vw;
-    background-color: blue;
-    color: white;
-    border: transparent;
-    border-radius: 10px;
-  }
 
   .UserLoginInnerContainer h5 {
     margin: 2vh 0;
     color: #095ffe;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .input {

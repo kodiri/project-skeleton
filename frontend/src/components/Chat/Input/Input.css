@@ -16,7 +16,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 .sendButton {
-  color: #fff !important;
+  color: #fff !important; /* <- THAT'S ROCHELLE!!!! */
   text-transform: uppercase;
   text-decoration: none;
   background: #2979FF;

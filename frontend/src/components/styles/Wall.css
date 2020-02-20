@@ -3,17 +3,6 @@ body {
 }
 
 /* WALL STYLES */
-
-.Wall {   /*this is for form but doesn' work */
-    background-color: white;
-    min-height: 650px;
-    width: 600px;
-    margin: 40px auto;
-
-};
-
-
-
 .userWall input::placecholder{
     color: rgb(240, 200, 22)
 }
@@ -32,14 +21,14 @@ body {
     color: white;
 
 }
-.Wall {   /*this is for form but doesn' work */
+.Wall {   
     background-color: white;
     min-height: 650px;
     width: 600px;
     margin: 40px auto;
 }
 
-.userInput { /*this doesn't work... */
+.userInput { 
     background-color: rgb(27, 159, 159);
     border: 0;
     width: 300px;

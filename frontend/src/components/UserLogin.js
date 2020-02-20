@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { Redirect } from "react-router-dom";
 import gql from 'graphql-tag';
+import email from '../assets/icons/email.svg'
+import password from '../assets/icons/password.svg'
 import './styles/UserLogin.css';
 
 const SIGNIN_MUTATION = gql`
@@ -48,11 +50,12 @@ class UserLogin extends Component {
                             }}>
                             <div className='UserLoginOuterContainer'>
                                 <div className='UserLoginInnerContainer'>
-                                    <h1 className='heading'>User Login Form</h1>
-                                    <div>
+                                    <h1 className='heading'>Log in</h1>
+                                    <div className='login email'>
+                                        <img src={email} alt='email icon' />
                                         <input
                                             name='email'
-                                            className='EmailInput'
+                                            className='input email'
                                             type='email'
                                             placeholder='example@example.com'
                                             value={this.state.email}
@@ -60,10 +63,11 @@ class UserLogin extends Component {
                                             required
                                         />
                                     </div>
-                                    <div>
+                                    <div className='login password mt-20'>
+                                        <img src={password} alt='email icon' />
                                         <input
                                             name='password'
-                                            className='PasswordInput mt-20'
+                                            className='input password'
                                             type='password'
                                             placeholder='password'
                                             value={this.state.password}
@@ -71,9 +75,9 @@ class UserLogin extends Component {
                                             required
                                         />
                                     </div>
-                                    <button className='button mt-20' type='submit'>Login</button>
+                                    <button className='button mt-20' type='submit'><h3>Login</h3></button>
+                                    <h5>Back</h5>
                                 </div>
-                                <button className='UserLoginButton' type='submit'><h3>Login</h3></button>
                             </div>
                         </form>
                     )

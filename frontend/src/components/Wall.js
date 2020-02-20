@@ -21,6 +21,7 @@ export default class Wall extends React.Component {
       currentItem: { text: e.target.value, key: Date.now() }
     });
   }
+
   addItem(e) {
     e.preventDefault(); //prevent default behavior//
     const newItem = this.state.currentItem;
@@ -36,6 +37,7 @@ export default class Wall extends React.Component {
       });
     }
   }
+  
   setUpdate(text, key) {
     const items = this.state.items;
     items.map(item => {
@@ -50,6 +52,7 @@ export default class Wall extends React.Component {
       const filteredItems = this.state.items.filter(item => item.key !== key)
       this.setState({items: filteredItems})
   }
+
   render() {
     return (
       <div className="Wall">

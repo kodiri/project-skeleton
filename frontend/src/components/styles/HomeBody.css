@@ -10,7 +10,6 @@
 
 .homebody-inner-container {
     height: 82vh;
-    width: ;
     background-color: #f2f2f2;
     margin: 0 6vw 12vh;
     padding-bottom: 10vh;
@@ -36,10 +35,7 @@
     color: white;
     flex: 1;
     border: none;
-}
-
-.homebody-button#login {
-    
+    transition: ease 0.2s;
 }
 
 .homebody-button#register {

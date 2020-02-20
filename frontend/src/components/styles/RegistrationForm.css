@@ -1,4 +1,4 @@
-.registration-container {
+/* .registration-container {
     margin: 40vh 0;
   }
   
@@ -21,4 +21,85 @@ input {
     color: white;
     border: transparent;
     border-radius: 10px;
+} */
+
+.UserRegistrationOuterContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.UserRegistrationInnerContainer {
+    height: 94vh;
+    background-color: white;
+    margin: 0 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3vw 10vh;
+}
+
+.register {
+    width: 85%;
+    align-items: center;
+  }
+
+.register.user,
+.register.email, 
+.register.password,
+.register.confirm-password {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    grid-gap: 2vw;
+}
+
+.heading {
+    color: black;
+    font-size: 2.5em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+  }
+
+  .UserRegistrationInnerContainer h1 {
+    color: black;
+  }
+  
+  .button {
+      color: #fff;
+      text-decoration: none;
+      background: #095ffe;
+      padding: 20px;
+      display: inline-block;
+      border: none;
+      width: 50%;
+  }
+
+  .button h3 {
+    margin: 0;
+  }
+
+  .UserRegistrationInnerContainer h5 {
+    margin: 2vh 0;
+    color: #095ffe;
+  }
+
+  .input {
+    border: 1px solid black;
+    height: 5vh;
+    padding-left: 2vw;
+  }
+
+.passwords-match {
+    visibility: hidden;
+    color: red;
+    margin: 1vh 0 0;
+}
+
+.passwords-no-match {
+    visibility: visible;
 }

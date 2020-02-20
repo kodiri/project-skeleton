@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
+import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
+import email from '../assets/icons/email.svg'
+import user from '../assets/icons/user.svg'
+import password from '../assets/icons/password.svg'
 import './styles/RegistrationForm.css';
 
 const SIGNUP_MUTATION = gql`
@@ -19,12 +23,18 @@ class UserRegistration extends Component {
         this.state = {
             name: "",
             email: "",
-            password: ""
+            password: "",
+            confirmPassword: "",
+            passwordsMatch: true
         }
     }
 
     saveToState = (e) => {
         this.setState({ [e.target.name]: e.target.value })
+    }
+
+    disableButton() {
+        return this.state.password !== this.state.confirmPassword;
     }
 
     render() {
@@ -35,20 +45,26 @@ class UserRegistration extends Component {
                         <form
                             method='post'
                             onSubmit={e => {
-                                e.preventDefault();
-                                signup();
-                                this.setState({
-                                    name: "",
-                                    email: "",
-                                    password: ""
-                                })
+                                if(this.state.password === this.state.confirmPassword) {
+                                    this.setState({ passwordsMatch: true });
+                                    e.preventDefault();
+                                    signup();
+                                    this.setState({
+                                        name: "",
+                                        email: "",
+                                        password: ""
+                                    }) } else {
+                                        e.preventDefault();
+                                        this.setState({ passwordsMatch: false });
+                                    }
                             }}>
                             <div className='UserRegistrationOuterContainer'>
                                 <div className='UserRegistrationInnerContainer'>
-                                    <h1 className='heading'>User Registration Form</h1>
-                                    <div>
+                                    <h1 className='heading'>Sign up</h1>
+                                    <div className='register user'>
+                                        <img src={user} alt='email icon' />
                                         <input
-                                            className='UserNameInput'
+                                            className='input username'
                                             type='text'
                                             placeholder='username'
                                             name='name'
@@ -56,52 +72,50 @@ class UserRegistration extends Component {
                                             onChange={this.saveToState}
                                             required />
                                     </div>
-                                    <div>
+                                    <div className='register email mt-20'>
+                                        <img src={email} alt='email icon' />
                                         <input
                                             name='email'
-                                            className='EmailInput'
+                                            className='input email'
                                             type='email'
                                             placeholder='example@example.com'
                                             value={this.state.email}
                                             onChange={this.saveToState}
                                             required />
                                     </div>
-                                    <div className='input-container'>
-                                        <label className='PasswordLabel' htmlFor='password'>Password:</label>
+                                    <div  className='register password mt-20'>
+                                        <img src={password} alt='email icon' />
                                         <input
                                             name='password'
-                                            className='PasswordInput'
+                                            className='input password'
                                             type='password'
                                             placeholder='password'
                                             value={this.state.password}
                                             onChange={this.saveToState}
                                             required />
                                     </div>
-                                    <button className='button mt-20' type='submit'>Register</button>
+                                    <div className='register confirm-password mt-20'>
+                                        <img src={password} alt='email icon' />
+                                        <input
+                                            name='confirmPassword'
+                                            className='input confirm-password'
+                                            type='password'
+                                            placeholder='retype password'
+                                            value={this.state.confirmPassword}
+                                            onChange={this.saveToState}
+                                            required />
+                                    </div>
+                                    <p className={`passwords-match${this.state.passwordsMatch ? '' : ' passwords-no-match'}`}>*passwords do not match</p>
+                                    <button 
+                                        className='button mt-20' 
+                                        type='submit' 
+                                    >
+                                        <h3>Register</h3>
+                                    </button>
+                                    <Link to="/">
+                                        <h5>Back</h5>
+                                    </Link>
                                 </div>
-                                <div className='input-container'>
-                                    <label htmlFor='email'>Email:</label>
-                                    <input
-                                        name='email'
-                                        className='Email'
-                                        type='email'
-                                        placeholder='example@example.com'
-                                        value={this.state.email}
-                                        onChange={this.saveToState}
-                                        required />
-                                </div>
-                                <div className='input-container'>
-                                    <label htmlFor='password'>Password:</label>
-                                    <input
-                                        name='password'
-                                        className='Password'
-                                        type='password'
-                                        placeholder='password'
-                                        value={this.state.password}
-                                        onChange={this.saveToState}
-                                        required />
-                                </div>
-                                <button className='registration-button' type='submit'><h3>Register</h3></button>
                             </div>
                         </form>
                     )

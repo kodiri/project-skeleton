@@ -37,7 +37,7 @@ export default class Wall extends React.Component {
       });
     }
   }
-  
+
   setUpdate(text, key) {
     const items = this.state.items;
     items.map(item => {
@@ -61,6 +61,7 @@ export default class Wall extends React.Component {
            className="userWall" 
            onSubmit={this.addItem}>
             <input
+              className="userInput"
               type="text"
               placeholder="Enter Text"
               value={this.state.currentItem.text}
@@ -71,7 +72,7 @@ export default class Wall extends React.Component {
                 backgroundColor: "rgb(202,156,24)",
                 height: "50px",
                 width: "80px",
-                color: "white"
+                color: "white",
               }}
               type="submit"
             >

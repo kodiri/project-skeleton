@@ -1,0 +1,60 @@
+body {
+    background-color: black;
+};
+
+/* WALL STYLES */
+
+.Wall {
+    background-color: white;
+    min-height: 650px;
+    width: 600px;
+    margin: 40px auto;
+
+};
+
+.userWall input {
+    background-color: rgb(27, 159, 159);
+    border: 0;
+    width: 300px;
+    height: 50px;
+    padding: 0 20px;
+    margin: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;  
+};
+
+.userWall input::placecholder{
+    color: rgb(240, 200, 22)
+};
+
+.userWall input:focus, .userWall button:focus {
+    outline: none;
+};
+
+.userWall button {
+    height: 50px ;
+    width: 80px;
+    border-radius: 5px;
+    border: 0;
+    background-color: rgb(202,156,24);
+    cursor: pointer;
+    color: white;
+
+}
+
+
+/* LISTITEM STYLES */
+
+.list {
+    color: #fff;
+    width: 300px;
+    background-color: skyblue;
+    height: 50px;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.list p {
+    padding: 12px; 
+}

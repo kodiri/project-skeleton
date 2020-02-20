@@ -1,0 +1,15 @@
+.wrapper {
+    color: white;
+    text-align: right;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+}
+
+.menu-item {
+    color: white;
+    margin: 20px;
+}

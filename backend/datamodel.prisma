@@ -1,0 +1,25 @@
+enum Permission {
+  ADMIN
+  USER
+  PERMISSIONUPDATE
+}
+
+type User {
+  id: ID! @id,
+  name: String! @unique,
+  email: String! @unique,
+  password: String!,
+  bio: String,
+  picture: String,
+  posts: [Post!]!,
+  permissions: [Permission] @scalarList(strategy:RELATION),
+  createdAt: DateTime! @createdAt,
+}
+
+type Post {
+  id: ID! @id,
+  text: String!,
+  likes: Float!,
+  createdAt: DateTime! @createdAt,
+  owner: User! @relation(link: INLINE),
+}

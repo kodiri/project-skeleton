@@ -37,7 +37,7 @@ export default class Wall extends React.Component {
       });
     }
   }
-  
+
   setUpdate(text, key) {
     const items = this.state.items;
     items.map(item => {
@@ -48,18 +48,18 @@ export default class Wall extends React.Component {
     this.setState({ items: items });
   }
 
-  deleteItem(key){
-      const filteredItems = this.state.items.filter(item => item.key !== key)
-      this.setState({items: filteredItems})
+  deleteItem(key) {
+    const filteredItems = this.state.items.filter(item => item.key !== key)
+    this.setState({ items: filteredItems })
   }
 
   render() {
     return (
       <div className="Wall">
         <header>
-          <form 
-           className="userWall" 
-           onSubmit={this.addItem}>
+          <form
+            className="userWall"
+            onSubmit={this.addItem}>
             <input
               type="text"
               placeholder="Enter Text"
@@ -79,9 +79,9 @@ export default class Wall extends React.Component {
             </button>
           </form>
         </header>
-        <Listitems items={this.state.items} 
-        deleteItem={this.deleteItem}
-        setUpdate={this.setUpdate} />
+        <Listitems items={this.state.items}
+          deleteItem={this.deleteItem}
+          setUpdate={this.setUpdate} />
 
       </div>
     );

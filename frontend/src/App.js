@@ -5,7 +5,7 @@ import UserProfile from './components/UserProfile';
 import UserRegistration from './components/RegistrationForm'
 import UserLogin from './components/UserLogin';
 import Join from './components/ChatForm';
-// import Chat from './components/ChatModule/Chat/Chat';
+import Chat from './components/Chat/Chat';
 import Wall from './components/Wall';
 import HomeBody from './components/HomeBody';
 
@@ -23,7 +23,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/join" component={Join} />
-          {/* <Route exact path="/chat" component={Chat} /> */}
+          <Route exact path="/chat" component={Chat} />
           <Route exact path="/wall" component={Wall} />
           <Route path="/profile/:name">
             <UserProfile />

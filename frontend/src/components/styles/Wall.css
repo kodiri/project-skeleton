@@ -4,7 +4,7 @@ body {
 
 /* WALL STYLES */
 
-.Wall {
+.Wall {   /*this is for form but doesn' work */
     background-color: white;
     min-height: 650px;
     width: 600px;
@@ -12,7 +12,7 @@ body {
 
 };
 
-.userWall input {
+.userWall input { /*this doen't work as well.. */
     background-color: rgb(27, 159, 159);
     border: 0;
     width: 300px;
@@ -22,6 +22,7 @@ body {
     font-size: 20px;
     border-radius: 10px;
     color: white;  
+    
 };
 
 .userWall input::placecholder{
@@ -41,20 +42,4 @@ body {
     cursor: pointer;
     color: white;
 
-}
-
-
-/* LISTITEM STYLES */
-
-.list {
-    color: #fff;
-    width: 300px;
-    background-color: skyblue;
-    height: 50px;
-    margin: 20px auto;
-    border-radius: 5px;
-}
-
-.list p {
-    padding: 12px; 
 }

@@ -4,8 +4,8 @@ import Header from './components/Header';
 import UserProfile from './components/UserProfile';
 import UserRegistration from './components/RegistrationForm'
 import UserLogin from './components/UserLogin';
-import Join from './components/ChatForm';
-import Chat from './components/ChatModule/Join/Join';
+import Join from './components/Chat/Join/Join';
+import Chat from './components/Chat/Chat/Chat';
 import Wall from './components/Wall';
 import HomeBody from './components/HomeBody';
 

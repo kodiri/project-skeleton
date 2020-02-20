@@ -2,13 +2,6 @@ body {
   color: white;
 }
 
-.wrapper {
-    display:grid;
-}
-
-.profile-picture {
-}
-
 .actionBar {
     height: 6vh;
     position: fixed;

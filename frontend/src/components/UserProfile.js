@@ -3,8 +3,6 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import { withRouter } from 'react-router-dom';
 import './styles/UserProfile.css';
-import BillPic from "../../src/assets/profile-pictures/bill-gates.jpg";
-import MicrosoftCover from "../../src/assets/cover-pictures/microsoft.jpg";
 
 const GET_USER_QUERY = gql`
   query($name: String!) {
@@ -21,9 +19,6 @@ class UserProfile extends Component {
         const name = this.props.match.params.name;
         return (
             <div className="wrapper">
-                <div className="cover-picture"><img src={MicrosoftCover} alt="Microsoft" /></div>
-                <div className="profile-picture"><img src={BillPic} alt="Bill Gates" /></div>
-
                 <Query query={GET_USER_QUERY} variables={{ name }}>
                     {({ data }, loading, error) => {
                         if (loading) return <p>Loading...</p>;
@@ -40,25 +35,28 @@ class UserProfile extends Component {
                         )
                     }}
                 </Query>
-                <div className='actionBar'>
-                    <button className='personalPageButton'>
-                        <img src={require('../assets/icons/newpost.svg')} alt='newpost' />
-                    </button>
-                    <button className='personalPageButton'>
-                        <img src={require('../assets/icons/notification.svg')} alt='notification' />
-                    </button>
-                    <button className='personalPageButton'>
-                        <img src={require('../assets/icons/search.svg')} alt='search' />
-                    </button>
-                    <button className='personalPageButton'>
-                        <img src={require('../assets/icons/menu.svg')} alt='menu' />
-                    </button>
-                </div>
             </div>
         );
     };
 }
 
-
+function ActionBar() {
+    return (
+        <div className='actionBar'>
+            <button className='personalPageButton'>
+                <img src={require('../assets/icons/newpost.svg')} alt='newpost' />
+            </button>
+            <button className='personalPageButton'>
+                <img src={require('../assets/icons/notification.svg')} alt='notification' />
+            </button>
+            <button className='personalPageButton'>
+                <img src={require('../assets/icons/search.svg')} alt='search' />
+            </button>
+            <button className='personalPageButton'>
+                <img src={require('../assets/icons/menu.svg')} alt='menu' />
+            </button>
+        </div>
+    );
+}
 
 export default withRouter(UserProfile);

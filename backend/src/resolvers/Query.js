@@ -2,6 +2,7 @@ const { forwardTo } = require('prisma-binding');
 
 const Query = {
     users: forwardTo('db'),
+    posts: forwardTo('db'),
 
     async me(parent, args, ctx, info) {
         const userId = await ctx.request.userId;

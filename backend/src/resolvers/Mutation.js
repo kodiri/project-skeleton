@@ -49,10 +49,11 @@ const Mutations = {
 
     },
     async newPost(parent, args, ctx, info) {
+        const { author, text } = args;
         const post = await ctx.db.mutation.createPost({
             data: {
-                author: "dumbo",
-                text: "blabla"
+                author,
+                text
             }
         }, info);
         return post;

@@ -20,7 +20,7 @@ type Mutation {
         picture: String
     ): User!
     newPost(
-        author: String
+        author: String!
         text: String!
     ): Post!
 }
@@ -28,6 +28,7 @@ type Mutation {
 
 type Query {
     users: [User]!
+    posts: [Post]!
     getUser(name: String): User
     me: User
 }

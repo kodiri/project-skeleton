@@ -9,7 +9,9 @@ body {
     width: 100vw;
     justify-content: center;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 
+    1fr
+    1fr 1fr 1fr 1fr;
     margin: auto;
     padding: 10px;
     background-color: white;

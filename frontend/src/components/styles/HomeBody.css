@@ -1,0 +1,88 @@
+.homebody-outer-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+    color: black;
+}
+
+.homebody-inner-container {
+    height: 82vh;
+    width: ;
+    background-color: #f2f2f2;
+    margin: 0 6vw 12vh;
+    padding-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomeMessage {
+
+}
+
+.homebody-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.homebody-button {
+    width: 35vw;
+    height: 3%;
+    background-color: #095ffe;
+    color: white;
+    flex: 1;
+    border: none;
+}
+
+.homebody-button#login {
+    
+}
+
+.homebody-button#register {
+    margin-top: 5%;
+    background-color: transparent;
+    border: 2px solid #095ffe;
+    color: #095ffe;
+}
+
+.homeBodyText {
+
+}
+
+.homebody-footer-links {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+.homebody-footer-links {
+    margin: 0 auto;
+}
+
+.homebody-footer-links h5 {
+    margin: 1vh;
+}
+
+.skull-logo img {
+    width: 20vw;
+    height: auto;
+    margin-bottom: 3vh;
+}
+
+@media (min-height: 700px) {
+    .homebody-inner-container {
+        padding-bottom: 10vh;
+    }
+    .skull-logo img {
+        margin-bottom: 10vh;
+    }
+}

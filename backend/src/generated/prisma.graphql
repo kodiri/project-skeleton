@@ -54,10 +54,9 @@ enum Permission {
 
 type Post {
   id: ID!
-  text: String!
-  likes: Float!
+  text: String
   createdAt: DateTime!
-  owner: User!
+  author: User!
 }
 
 type PostConnection {
@@ -68,20 +67,18 @@ type PostConnection {
 
 input PostCreateInput {
   id: ID
-  text: String!
-  likes: Float!
-  owner: UserCreateOneWithoutPostsInput!
+  text: String
+  author: UserCreateOneWithoutPostsInput!
 }
 
-input PostCreateManyWithoutOwnerInput {
-  create: [PostCreateWithoutOwnerInput!]
+input PostCreateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
   connect: [PostWhereUniqueInput!]
 }
 
-input PostCreateWithoutOwnerInput {
+input PostCreateWithoutAuthorInput {
   id: ID
-  text: String!
-  likes: Float!
+  text: String
 }
 
 type PostEdge {
@@ -94,16 +91,13 @@ enum PostOrderByInput {
   id_DESC
   text_ASC
   text_DESC
-  likes_ASC
-  likes_DESC
   createdAt_ASC
   createdAt_DESC
 }
 
 type PostPreviousValues {
   id: ID!
-  text: String!
-  likes: Float!
+  text: String
   createdAt: DateTime!
 }
 
@@ -136,14 +130,6 @@ input PostScalarWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
-  likes: Float
-  likes_not: Float
-  likes_in: [Float!]
-  likes_not_in: [Float!]
-  likes_lt: Float
-  likes_lte: Float
-  likes_gt: Float
-  likes_gte: Float
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -177,28 +163,25 @@ input PostSubscriptionWhereInput {
 
 input PostUpdateInput {
   text: String
-  likes: Float
-  owner: UserUpdateOneRequiredWithoutPostsInput
+  author: UserUpdateOneRequiredWithoutPostsInput
 }
 
 input PostUpdateManyDataInput {
   text: String
-  likes: Float
 }
 
 input PostUpdateManyMutationInput {
   text: String
-  likes: Float
 }
 
-input PostUpdateManyWithoutOwnerInput {
-  create: [PostCreateWithoutOwnerInput!]
+input PostUpdateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
   delete: [PostWhereUniqueInput!]
   connect: [PostWhereUniqueInput!]
   set: [PostWhereUniqueInput!]
   disconnect: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutOwnerInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutOwnerInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
   deleteMany: [PostScalarWhereInput!]
   updateMany: [PostUpdateManyWithWhereNestedInput!]
 }
@@ -208,20 +191,19 @@ input PostUpdateManyWithWhereNestedInput {
   data: PostUpdateManyDataInput!
 }
 
-input PostUpdateWithoutOwnerDataInput {
+input PostUpdateWithoutAuthorDataInput {
   text: String
-  likes: Float
 }
 
-input PostUpdateWithWhereUniqueWithoutOwnerInput {
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
   where: PostWhereUniqueInput!
-  data: PostUpdateWithoutOwnerDataInput!
+  data: PostUpdateWithoutAuthorDataInput!
 }
 
-input PostUpsertWithWhereUniqueWithoutOwnerInput {
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
   where: PostWhereUniqueInput!
-  update: PostUpdateWithoutOwnerDataInput!
-  create: PostCreateWithoutOwnerInput!
+  update: PostUpdateWithoutAuthorDataInput!
+  create: PostCreateWithoutAuthorInput!
 }
 
 input PostWhereInput {
@@ -253,14 +235,6 @@ input PostWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
-  likes: Float
-  likes_not: Float
-  likes_in: [Float!]
-  likes_not_in: [Float!]
-  likes_lt: Float
-  likes_lte: Float
-  likes_gt: Float
-  likes_gte: Float
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -269,7 +243,7 @@ input PostWhereInput {
   createdAt_lte: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
-  owner: UserWhereInput
+  author: UserWhereInput
   AND: [PostWhereInput!]
   OR: [PostWhereInput!]
   NOT: [PostWhereInput!]
@@ -319,7 +293,7 @@ input UserCreateInput {
   password: String!
   bio: String
   picture: String
-  posts: PostCreateManyWithoutOwnerInput
+  posts: PostCreateManyWithoutAuthorInput
   permissions: UserCreatepermissionsInput
 }
 
@@ -399,7 +373,7 @@ input UserUpdateInput {
   password: String
   bio: String
   picture: String
-  posts: PostUpdateManyWithoutOwnerInput
+  posts: PostUpdateManyWithoutAuthorInput
   permissions: UserUpdatepermissionsInput
 }
 

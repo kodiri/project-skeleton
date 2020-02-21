@@ -19,6 +19,10 @@ type Mutation {
         bio: String
         picture: String
     ): User!
+    newPost(
+        author: String
+        text: String!
+    ): Post!
 }
 
 

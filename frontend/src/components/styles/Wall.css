@@ -1,45 +1,53 @@
 body {
     background-color: black;
-};
+}
 
 /* WALL STYLES */
-
-.Wall {   /*this is for form but doesn' work */
-    background-color: white;
-    min-height: 650px;
-    width: 600px;
-    margin: 40px auto;
-
-};
-
-.userWall input { /*this doen't work as well.. */
-    background-color: rgb(27, 159, 159);
-    border: 0;
-    width: 300px;
-    height: 50px;
-    padding: 0 20px;
-    margin: 20px;
-    font-size: 20px;
-    border-radius: 10px;
-    color: white;  
-    
-};
-
-.userWall input::placecholder{
+.userWall textarea::placecholder{
     color: rgb(240, 200, 22)
-};
+}
 
-.userWall input:focus, .userWall button:focus {
+.userWall textarea:focus, .userWall button:focus {
     outline: none;
-};
+}
 
 .userWall button {
-    height: 50px ;
+    height: 65px ;
     width: 80px;
     border-radius: 5px;
     border: 0;
     background-color: rgb(202,156,24);
     cursor: pointer;
     color: white;
+    /* position: absolute;
+    top: 125px; */
+    margin-top: 25px;
 
+}
+.Wall {   
+    background-color: ivory;
+    min-height: 650px;
+    width: 600px;
+    margin: 40px auto;
+
+}
+
+.userInput { 
+    background-color: rgb(27, 159, 159);
+    border: 0;
+    width: 300px;
+    height: 70px;
+    padding: 20px 10px 10px 10px;
+    margin: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;  
+    
+}
+
+
+.user-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
 }

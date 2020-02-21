@@ -1,45 +1,70 @@
 .UserLoginOuterContainer {
-  display: flex;
-  justify-content: center;
   text-align: center;
-  height: 100vh;
-  align-items: center;
-  background-color: #1A1A1D;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    color: black;
 }
 .UserLoginInnerContainer {
-  width: 20%;
+  height: 94vh;
+    background-color: white;
+    margin: 0 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3vw 10vh;
+}
+
+.login {
+  width: 85%;
+  align-items: center;
+}
+
+.login.email, .login.password {
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  grid-gap: 2vw;
 }
   
-  .EmailInput, .PasswordInput {
-    border-radius: 0;
-    padding: 15px 20px;
-    width: 100%;
-  }
-  
   .heading {
-    color: white;
+    color: black;
     font-size: 2.5em;
     padding-bottom: 10px;
     border-bottom: 2px solid white;
   }
-  
-  .button {
-      color: #fff !important;
-      text-transform: uppercase;
-      text-decoration: none;
-      background: #2979FF;
-      padding: 20px;
-      border-radius: 5px;
-      display: inline-block;
-      border: none;
-      width: 100%;
+
+  .UserLoginInnerContainer h1 {
+    color: black;
   }
   
-  .UserLoginButton {
-    margin-top: 2vh;
-    padding: 0 1vw;
-    background-color: blue;
-    color: white;
-    border: transparent;
-    border-radius: 10px;
+  .button {
+      color: #fff;
+      text-decoration: none;
+      background: #095ffe;
+      padding: 20px;
+      display: inline-block;
+      border: none;
+      width: 50%;
+  }
+
+  .button h3 {
+    margin: 0;
+  }
+
+  .UserLoginInnerContainer h5 {
+    margin: 2vh 0;
+    color: #095ffe;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .input {
+    border: 1px solid black;
+    height: 5vh;
+    padding-left: 2vw;
   }

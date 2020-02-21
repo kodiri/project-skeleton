@@ -20,10 +20,10 @@ class HomeBody extends React.Component {
                     </div>
                     <div className='homebody-buttons'>
                         <Link to="/login">
-                            <button className='homebody-button' id='login'><h3>Log In</h3></button>
+                            <button className='homebody-button' id='login'><h3>Log in</h3></button>
                         </Link>
                         <Link to="/register">
-                            <button className='homebody-button' id='register'><h3>Sign Up</h3></button>
+                            <button className='homebody-button' id='register'><h3>Sign up</h3></button>
                         </Link>
                     </div>
                     <div className='homeBodyText'>

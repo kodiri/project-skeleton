@@ -57,26 +57,24 @@ export default class Wall extends React.Component {
     return (
       <div className="Wall">
         <header>
-          <form
-            className="userWall"
-            onSubmit={this.addItem}>
-            <input
+          <form 
+           className="userWall" 
+           onSubmit={this.addItem}>
+             <div className='user-container'>
+            <textarea
+              className="userInput"
               type="text"
               placeholder="Enter Text"
               value={this.state.currentItem.text}
               onChange={this.handleInput}
+              rows="3"
             />
             <button
-              style={{
-                backgroundColor: "rgb(202,156,24)",
-                height: "50px",
-                width: "80px",
-                color: "white"
-              }}
               type="submit"
             >
               Post
             </button>
+            </div>
           </form>
         </header>
         <Listitems items={this.state.items}

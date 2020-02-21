@@ -9,11 +9,11 @@ function ListItems(props){
         { return (
             <div className='list' key={item.key}>
                 <p>
-                    <input className='input' type="text" 
+                    <textarea className='input' type="text" 
                     id={item.key} 
                     value={item.text} 
                     onChange={(e) => {props.setUpdate(e.target.value, item.key)} }
-                    />
+                     />
                     <button onClick={ () => props.deleteItem(item.key)}>delete</button>
                 </p>
 

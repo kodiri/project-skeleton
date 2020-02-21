@@ -6,8 +6,8 @@ require('dotenv').config();
 export const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-        // uri: `https://project-skeleton-prod.herokuapp.com/`,
-        uri: `http://localhost:4000/`,
+        uri: `https://project-skeleton-prod.herokuapp.com/`,
+        // uri: `http://localhost:4000/`,
         credentials: 'include'
     }),
 });

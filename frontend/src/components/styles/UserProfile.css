@@ -1,7 +1,3 @@
-body {
-  color: white;
-}
-
 .actionBar {
     height: 6vh;
     position: fixed;
@@ -14,7 +10,7 @@ body {
     1fr 1fr 1fr 1fr;
     margin: auto;
     padding: 10px;
-    background-color: white;
+    background-color: var(--tertiaryBGC);
 }
 
 .personalPageButton {

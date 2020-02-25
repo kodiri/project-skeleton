@@ -4,12 +4,12 @@
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    background-color: #f2f2f2;
-    color: black;
+    background-color: var(--secondaryBGC);
+    color: var(--secondaryTC);
 }
 .UserLoginInnerContainer {
   height: 94vh;
-    background-color: white;
+    background-color: var(--tertiaryBGC);
     margin: 0 6vw;
     display: flex;
     flex-direction: column;
@@ -30,37 +30,19 @@
 }
   
   .heading {
-    color: black;
+    color: var(--secondaryTC);
     font-size: 2.5em;
     padding-bottom: 10px;
     border-bottom: 2px solid white;
   }
 
   .UserLoginInnerContainer h1 {
-    color: black;
-  }
-  
-  .button {
-      color: #fff;
-      text-decoration: none;
-      background: #095ffe;
-      padding: 20px;
-      display: inline-block;
-      border: none;
-      width: 50%;
-  }
-
-  .button h3 {
-    margin: 0;
+    color: var(--secondaryTC);
   }
 
   .UserLoginInnerContainer h5 {
     margin: 2vh 0;
-    color: #095ffe;
-  }
-
-  a {
-    text-decoration: none;
+    color: var(--tertiaryTC);
   }
 
   .input {

@@ -1,18 +1,18 @@
 .list {
-    color: #fff;
+    color: var(--secondaryTC);
     width: 300px;
-    background-color: skyblue;
+    background-color: var(--tertiaryBGC);
     /* height: 70px; */
     margin: 20px auto;
-    border-radius: 5px;
+    border-top: 1px solid grey;
 }
 
 .input {
     width: 220px;
-    background-color: skyblue;
+    background-color: var(--tertiaryBGC);
     border: none;
     outline: none;
-    color: white;
+    color: var(--secondaryTC);
     font-size: 20px;
     overflow: hidden;
 }
@@ -25,7 +25,7 @@
 .list p input {
     background-color: transparent;
     border: 0;
-    color: white;
+    color: var(--secondaryTC);
     font-size: 18px;
 }
 .list p input:focus {

@@ -19,7 +19,7 @@ const Mutations = {
             httpOnly: true,
             maxAge: 1000 * 60 * 60 * 24 * 365,
             SameSite: "lax"
-        })
+        });
         return user;
     },
     async signin(parent, { email, password }, ctx, info) {
@@ -47,8 +47,17 @@ const Mutations = {
     },
     async updateDetails(parent, args, ctx, info) {
 
+    },
+    async newPost(parent, args, ctx, info) {
+        const { author, text } = args;
+        const post = await ctx.db.mutation.createPost({
+            data: {
+                author,
+                text
+            }
+        }, info);
+        return post;
     }
-
 }
 
 module.exports = Mutations;

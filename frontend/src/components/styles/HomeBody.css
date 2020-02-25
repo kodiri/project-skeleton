@@ -5,22 +5,18 @@
     justify-content: center;
     height: 100vh;
     background-color: white;
-    color: black;
+    color: var(--secondaryTC);
 }
 
 .homebody-inner-container {
     height: 82vh;
-    background-color: #f2f2f2;
+    background-color: var(--secondaryBGC);
     margin: 0 6vw 12vh;
     padding-bottom: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.welcomeMessage {
-
 }
 
 .homebody-buttons {
@@ -31,8 +27,8 @@
 .homebody-button {
     width: 35vw;
     height: 3%;
-    background-color: #095ffe;
-    color: white;
+    background-color: var(--primaryBGC);
+    color: var(--primaryTC);
     flex: 1;
     border: none;
     transition: ease 0.2s;
@@ -41,12 +37,8 @@
 .homebody-button#register {
     margin-top: 5%;
     background-color: transparent;
-    border: 2px solid #095ffe;
-    color: #095ffe;
-}
-
-.homeBodyText {
-
+    border: 2px solid var(--primaryBGC);
+    color: var(--tertiaryTC);
 }
 
 .homebody-footer-links {
@@ -56,8 +48,8 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    background-color: black;
-    color: white;
+    background-color: var(--primaryBGC);
+    color: var(--primaryTC);
 }
 
 .homebody-footer-links {

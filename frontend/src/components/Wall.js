@@ -72,7 +72,7 @@ export default class Wall extends React.Component {
             <button
               type="submit"
             >
-              Post
+              <h3>Post</h3>
             </button>
             </div>
           </form>

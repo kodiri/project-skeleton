@@ -1,4 +1,59 @@
+/* Color theme for entire app */
+:root {
+  /* Background Colors */
+  --primaryBGC: #2979FF;
+  --secondaryBGC: #f2f2f2;
+  --tertiaryBGC: white;
+  
+  /* Text Colors */
+  --primaryTC: white;
+  --secondaryTC: black;
+  --tertiaryTC: #2979FF;
+  --errorTC: red;
+}
+
 .App {
   font-family: 'Montserrat', sans-serif;
   font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--tertiaryBGC);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.button {
+  color: var(--primaryTC);
+  text-decoration: none;
+  background: var(--primaryBGC);
+  padding: 20px;
+  display: inline-block;
+  border: none;
+  width: 50%;
+}
+
+.button h3 {
+  margin: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.mt-20 {
+  margin-top: 20px;
 }

@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const db = new Prisma({
     typeDefs: "src/generated/prisma.graphql",
-    endpoint: process.env.PRISMA_ENDPOINT,
+    endpoint: x,
     debug: false,
 })
 

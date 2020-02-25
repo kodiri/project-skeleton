@@ -2,13 +2,19 @@
     color: #fff;
     width: 300px;
     background-color: skyblue;
-    height: 50px;
+    /* height: 70px; */
     margin: 20px auto;
     border-radius: 5px;
 }
 
 .input {
     width: 220px;
+    background-color: skyblue;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    overflow: hidden;
 }
 
 .list p{

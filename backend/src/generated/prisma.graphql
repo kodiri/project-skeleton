@@ -55,9 +55,8 @@ enum Permission {
 type Post {
   id: ID!
   text: String!
-  likes: Float!
   createdAt: DateTime!
-  owner: User!
+  author: String!
 }
 
 type PostConnection {
@@ -69,19 +68,12 @@ type PostConnection {
 input PostCreateInput {
   id: ID
   text: String!
-  likes: Float!
-  owner: UserCreateOneWithoutPostsInput!
+  author: String!
 }
 
-input PostCreateManyWithoutOwnerInput {
-  create: [PostCreateWithoutOwnerInput!]
+input PostCreateManyInput {
+  create: [PostCreateInput!]
   connect: [PostWhereUniqueInput!]
-}
-
-input PostCreateWithoutOwnerInput {
-  id: ID
-  text: String!
-  likes: Float!
 }
 
 type PostEdge {
@@ -94,17 +86,17 @@ enum PostOrderByInput {
   id_DESC
   text_ASC
   text_DESC
-  likes_ASC
-  likes_DESC
   createdAt_ASC
   createdAt_DESC
+  author_ASC
+  author_DESC
 }
 
 type PostPreviousValues {
   id: ID!
   text: String!
-  likes: Float!
   createdAt: DateTime!
+  author: String!
 }
 
 input PostScalarWhereInput {
@@ -136,14 +128,6 @@ input PostScalarWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
-  likes: Float
-  likes_not: Float
-  likes_in: [Float!]
-  likes_not_in: [Float!]
-  likes_lt: Float
-  likes_lte: Float
-  likes_gt: Float
-  likes_gte: Float
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -152,6 +136,20 @@ input PostScalarWhereInput {
   createdAt_lte: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
   AND: [PostScalarWhereInput!]
   OR: [PostScalarWhereInput!]
   NOT: [PostScalarWhereInput!]
@@ -175,32 +173,36 @@ input PostSubscriptionWhereInput {
   NOT: [PostSubscriptionWhereInput!]
 }
 
+input PostUpdateDataInput {
+  text: String
+  author: String
+}
+
 input PostUpdateInput {
   text: String
-  likes: Float
-  owner: UserUpdateOneRequiredWithoutPostsInput
+  author: String
 }
 
 input PostUpdateManyDataInput {
   text: String
-  likes: Float
+  author: String
 }
 
-input PostUpdateManyMutationInput {
-  text: String
-  likes: Float
-}
-
-input PostUpdateManyWithoutOwnerInput {
-  create: [PostCreateWithoutOwnerInput!]
+input PostUpdateManyInput {
+  create: [PostCreateInput!]
+  update: [PostUpdateWithWhereUniqueNestedInput!]
+  upsert: [PostUpsertWithWhereUniqueNestedInput!]
   delete: [PostWhereUniqueInput!]
   connect: [PostWhereUniqueInput!]
   set: [PostWhereUniqueInput!]
   disconnect: [PostWhereUniqueInput!]
-  update: [PostUpdateWithWhereUniqueWithoutOwnerInput!]
-  upsert: [PostUpsertWithWhereUniqueWithoutOwnerInput!]
   deleteMany: [PostScalarWhereInput!]
   updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
+input PostUpdateManyMutationInput {
+  text: String
+  author: String
 }
 
 input PostUpdateManyWithWhereNestedInput {
@@ -208,20 +210,15 @@ input PostUpdateManyWithWhereNestedInput {
   data: PostUpdateManyDataInput!
 }
 
-input PostUpdateWithoutOwnerDataInput {
-  text: String
-  likes: Float
+input PostUpdateWithWhereUniqueNestedInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateDataInput!
 }
 
-input PostUpdateWithWhereUniqueWithoutOwnerInput {
+input PostUpsertWithWhereUniqueNestedInput {
   where: PostWhereUniqueInput!
-  data: PostUpdateWithoutOwnerDataInput!
-}
-
-input PostUpsertWithWhereUniqueWithoutOwnerInput {
-  where: PostWhereUniqueInput!
-  update: PostUpdateWithoutOwnerDataInput!
-  create: PostCreateWithoutOwnerInput!
+  update: PostUpdateDataInput!
+  create: PostCreateInput!
 }
 
 input PostWhereInput {
@@ -253,14 +250,6 @@ input PostWhereInput {
   text_not_starts_with: String
   text_ends_with: String
   text_not_ends_with: String
-  likes: Float
-  likes_not: Float
-  likes_in: [Float!]
-  likes_not_in: [Float!]
-  likes_lt: Float
-  likes_lte: Float
-  likes_gt: Float
-  likes_gte: Float
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -269,7 +258,20 @@ input PostWhereInput {
   createdAt_lte: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
-  owner: UserWhereInput
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_lt: String
+  author_lte: String
+  author_gt: String
+  author_gte: String
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
   AND: [PostWhereInput!]
   OR: [PostWhereInput!]
   NOT: [PostWhereInput!]
@@ -319,27 +321,12 @@ input UserCreateInput {
   password: String!
   bio: String
   picture: String
-  posts: PostCreateManyWithoutOwnerInput
+  posts: PostCreateManyInput
   permissions: UserCreatepermissionsInput
-}
-
-input UserCreateOneWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
-  connect: UserWhereUniqueInput
 }
 
 input UserCreatepermissionsInput {
   set: [Permission!]
-}
-
-input UserCreateWithoutPostsInput {
-  id: ID
-  name: String!
-  email: String!
-  password: String!
-  bio: String
-  picture: String
-  permissions: UserCreatepermissionsInput
 }
 
 type UserEdge {
@@ -399,7 +386,7 @@ input UserUpdateInput {
   password: String
   bio: String
   picture: String
-  posts: PostUpdateManyWithoutOwnerInput
+  posts: PostUpdateManyInput
   permissions: UserUpdatepermissionsInput
 }
 
@@ -412,29 +399,8 @@ input UserUpdateManyMutationInput {
   permissions: UserUpdatepermissionsInput
 }
 
-input UserUpdateOneRequiredWithoutPostsInput {
-  create: UserCreateWithoutPostsInput
-  update: UserUpdateWithoutPostsDataInput
-  upsert: UserUpsertWithoutPostsInput
-  connect: UserWhereUniqueInput
-}
-
 input UserUpdatepermissionsInput {
   set: [Permission!]
-}
-
-input UserUpdateWithoutPostsDataInput {
-  name: String
-  email: String
-  password: String
-  bio: String
-  picture: String
-  permissions: UserUpdatepermissionsInput
-}
-
-input UserUpsertWithoutPostsInput {
-  update: UserUpdateWithoutPostsDataInput!
-  create: UserCreateWithoutPostsInput!
 }
 
 input UserWhereInput {

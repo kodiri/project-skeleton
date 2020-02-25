@@ -2,7 +2,7 @@ import React from "react";
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import User from './User';
-import "./styles/Wall.css";
+import "./styles/FeedForm.css";
 // import Listitems from "./Listitems";
 
 const NEW_POST_MUTATION = gql`
@@ -14,7 +14,7 @@ const NEW_POST_MUTATION = gql`
   }
 `;
 
-export default class Wall extends React.Component {
+export default class FeedForm extends React.Component {
 
   constructor() {
     super();
@@ -36,10 +36,10 @@ export default class Wall extends React.Component {
             {(newPost, { error, loading }) => {
               return (
                 <form method="post"
-                  className="userWall"
+                  className="userFeedForm"
                   onSubmit={async e => {
                     e.preventDefault();
-                    const author = data.me.name;
+                    const author = data?.me.name;
                     this.setState({ author });
                     await newPost();
                   }}>
@@ -54,17 +54,20 @@ export default class Wall extends React.Component {
                       rows="3"
                     />
                   </div>
-                  <button type="submit">Post</button>
+                  <button type="submit">
+                    <h3>Post</h3>
+
+                  </button>
                 </form>
               )
             }}
           </Mutation>
         )}
       </User>
-      // <div className="Wall">
+      // <div className="FeedForm">
       //   <header>
       //     <form
-      //       className="userWall"
+      //       className="userFeedForm"
       //       onSubmit={this.addItem}>
       //       <div className='user-container'>
       //         <textarea

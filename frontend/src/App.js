@@ -6,7 +6,8 @@ import UserRegistration from './components/RegistrationForm'
 import UserLogin from './components/UserLogin';
 import Join from './components/Chat/Join/Join';
 import Chat from './components/Chat/Chat/Chat';
-import Wall from './components/Wall';
+import FeedForm from './components/FeedForm';
+import Feeds from './components/Feeds';
 import HomeBody from './components/HomeBody';
 
 import {
@@ -24,7 +25,10 @@ function App() {
         <Switch>
           <Route exact path="/join" component={Join} />
           <Route exact path="/chat" component={Chat} />
-          <Route exact path="/wall" component={Wall} />
+          <Route exact path="/wall">
+            <FeedForm />
+            <Feeds />
+          </Route>
           <Route path="/profile/:name">
             <UserProfile />
           </Route>

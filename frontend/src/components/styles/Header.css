@@ -1,5 +1,5 @@
 .wrapper {
-    color: white;
+    color: var(--primaryTC);
     text-align: right;
 }
 
@@ -10,6 +10,6 @@
 }
 
 .menu-item {
-    color: white;
+    color: var(--primaryTC);
     margin: 20px;
 }

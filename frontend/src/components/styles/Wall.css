@@ -1,10 +1,10 @@
 body {
-    background-color: black;
+    background-color: var(--secondaryBGC);
 }
 
 /* WALL STYLES */
-.userWall textarea::placecholder{
-    color: rgb(240, 200, 22)
+.userWall textarea::placeholder{
+    color: var(--tertiaryTC);
 }
 
 .userWall textarea:focus, .userWall button:focus {
@@ -14,18 +14,17 @@ body {
 .userWall button {
     height: 65px ;
     width: 80px;
-    border-radius: 5px;
     border: 0;
-    background-color: rgb(202,156,24);
+    background-color: var(--primaryBGC);
     cursor: pointer;
-    color: white;
+    color: var(--primaryTC);
     /* position: absolute;
     top: 125px; */
     margin-top: 25px;
 
 }
 .Wall {   
-    background-color: ivory;
+    background-color: var(--tertiaryBGC);
     min-height: 650px;
     width: 600px;
     margin: 40px auto;
@@ -33,7 +32,7 @@ body {
 }
 
 .userInput { 
-    background-color: rgb(27, 159, 159);
+    background-color: var(--tertiaryBGC);
     border: 0;
     width: 300px;
     height: 70px;
@@ -41,7 +40,7 @@ body {
     margin: 20px;
     font-size: 20px;
     border-radius: 10px;
-    color: white;  
+    color: var(--secondaryTC);  
     
 }
 

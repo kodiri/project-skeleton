@@ -12,6 +12,10 @@
   --errorTC: red;
 }
 
+#root {
+  background-color: var(--secondaryBGC);
+}
+
 .App {
   font-family: 'Montserrat', sans-serif;
   font-family: 'Open Sans', sans-serif;

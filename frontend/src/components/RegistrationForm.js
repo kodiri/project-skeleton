@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 import email from '../assets/icons/email.svg'
 import user from '../assets/icons/user.svg'
@@ -25,12 +25,15 @@ class UserRegistration extends Component {
             email: "",
             password: "",
             confirmPassword: "",
-            passwordsMatch: true
+            passwordsMatch: true,
+            toProfilePage: false,
+            userName: ""
         }
     }
 
     saveToState = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ userName: this.state.name });
     }
 
     disableButton() {
@@ -38,6 +41,9 @@ class UserRegistration extends Component {
     }
 
     render() {
+        if (this.state.toProfilePage === true) {
+            return <Redirect to={`/profile/${this.state.userName}`} />
+        }
         return (
             <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
                 {(signup, { error, loading }) => {
@@ -52,7 +58,9 @@ class UserRegistration extends Component {
                                     this.setState({
                                         name: "",
                                         email: "",
-                                        password: ""
+                                        password: "",
+                                        confirmPassword: "",
+                                        toProfilePage: true
                                     }) } else {
                                         e.preventDefault();
                                         this.setState({ passwordsMatch: false });
@@ -64,7 +72,7 @@ class UserRegistration extends Component {
                                     <div className='register user'>
                                         <img src={user} alt='email icon' />
                                         <input
-                                            className='input username'
+                                            className='register-input username'
                                             type='text'
                                             placeholder='username'
                                             name='name'
@@ -76,7 +84,7 @@ class UserRegistration extends Component {
                                         <img src={email} alt='email icon' />
                                         <input
                                             name='email'
-                                            className='input email'
+                                            className='register-input email'
                                             type='email'
                                             placeholder='example@example.com'
                                             value={this.state.email}
@@ -87,7 +95,7 @@ class UserRegistration extends Component {
                                         <img src={password} alt='email icon' />
                                         <input
                                             name='password'
-                                            className='input password'
+                                            className='register-input password'
                                             type='password'
                                             placeholder='password'
                                             value={this.state.password}
@@ -98,7 +106,7 @@ class UserRegistration extends Component {
                                         <img src={password} alt='email icon' />
                                         <input
                                             name='confirmPassword'
-                                            className='input confirm-password'
+                                            className='register-input confirm-password'
                                             type='password'
                                             placeholder='retype password'
                                             value={this.state.confirmPassword}
@@ -123,6 +131,6 @@ class UserRegistration extends Component {
             </Mutation>
         );
     }
-};
+};  
 
 export default UserRegistration;

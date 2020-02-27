@@ -3,26 +3,46 @@ body {
 }
 
 /* WALL STYLES */
-.userWall textarea::placeholder{
+.userFeedForm {
+    z-index: 0;
+    position: absolute;
+    top: 15vh;
+    opacity: 1;
+    transition: ease 0.5s;
+}
+
+.userFeedForm.hidden {
+    top: 100vh;
+    opacity: 0;
+}
+
+.userFeedForm textarea {
+    height: 40vh;
+    width: 100vw;
+    margin: 0;
+    border-radius: 0;
+}
+
+.userFeedForm textarea::placeholder{
     color: var(--tertiaryTC);
 }
 
-.userWall textarea:focus, .userWall button:focus {
+.userFeedForm textarea:focus, .userWall button:focus {
     outline: none;
 }
 
-.userWall button {
-    height: 65px ;
+.userFeedForm button {
+    height: 45px ;
     width: 80px;
     border: 0;
     background-color: var(--primaryBGC);
     cursor: pointer;
     color: var(--primaryTC);
-    /* position: absolute;
-    top: 125px; */
-    margin-top: 25px;
-
+    margin-top: 5px;
+    position: absolute;
+    right: 10px;
 }
+
 .Wall {   
     background-color: var(--tertiaryBGC);
     min-height: 650px;
@@ -46,7 +66,6 @@ body {
 
 
 .user-container {
-    margin: 20px auto;
     display: flex;
     justify-content: center;
 }

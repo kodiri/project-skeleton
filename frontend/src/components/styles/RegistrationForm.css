@@ -49,7 +49,7 @@
     color: var(--tertiaryTC);
   }
 
-  .input {
+  .register-input {
     border: 1px solid black;
     height: 5vh;
     padding-left: 2vw;

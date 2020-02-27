@@ -4,6 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 import gql from 'graphql-tag';
 import email from '../assets/icons/email.svg'
 import password from '../assets/icons/password.svg'
+import { userName } from './RegistrationForm'
 import './styles/UserLogin.css';
 
 const SIGNIN_MUTATION = gql`
@@ -33,7 +34,7 @@ class UserLogin extends Component {
 
     render() {
         if (this.state.toProfilePage === true) {
-            return <Redirect to="/profile" />
+            return <Redirect to={`/profile/`} />
         }
         return (
             <Mutation mutation={SIGNIN_MUTATION} variables={this.state}>
@@ -55,7 +56,7 @@ class UserLogin extends Component {
                                         <img src={email} alt='email icon' />
                                         <input
                                             name='email'
-                                            className='input email'
+                                            className='login-input email'
                                             type='email'
                                             placeholder='example@example.com'
                                             value={this.state.email}
@@ -67,7 +68,7 @@ class UserLogin extends Component {
                                         <img src={password} alt='email icon' />
                                         <input
                                             name='password'
-                                            className='input password'
+                                            className='login-input password'
                                             type='password'
                                             placeholder='password'
                                             value={this.state.password}

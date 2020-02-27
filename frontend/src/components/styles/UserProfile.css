@@ -1,5 +1,33 @@
-body {
-  color: white;
+.wrapper {
+    overflow: hidden;
+}
+
+.userProfile-outer-container {
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    height: auto;
+    background-color: var(--tertiaryBGC);
+    color: var(--secondaryTC);
+    overflow: hidden;
+    grid-template-rows: 20vh 15vh auto;
+    grid-template-areas: 
+    "cover"
+    "details"
+    "feed";
+}
+
+.cover-image {
+    position: relative;
+    top: 0;
+    height: 20vh;
+    overflow: hidden;
+    grid-area: "cover";
+}
+
+.details {
+    grid-area: "details";
+    background-color: var(--secondaryBGC);
 }
 
 .actionBar {
@@ -10,11 +38,11 @@ body {
     justify-content: center;
     display:grid;
     grid-template-columns: 
-    1fr
-    1fr 1fr 1fr 1fr;
+    1fr 1fr 1fr;
     margin: auto;
     padding: 10px;
-    background-color: white;
+    background-color: var(--tertiaryBGC);
+    z-index: 2;
 }
 
 .personalPageButton {
@@ -23,4 +51,8 @@ body {
     height: 80%;
     width: auto;
     justify-self: center;
+}
+
+.personalPageButton.menu {
+    transform: rotate(90deg);
 }

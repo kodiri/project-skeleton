@@ -4,9 +4,10 @@ import Header from './components/Header';
 import UserProfile from './components/UserProfile';
 import UserRegistration from './components/RegistrationForm'
 import UserLogin from './components/UserLogin';
-import Join from './components/ChatForm';
-// import Chat from './components/ChatModule/Chat/Chat';
-import Wall from './components/Wall';
+import Join from './components/Chat/Join/Join';
+import Chat from './components/Chat/Chat/Chat';
+import FeedForm from './components/FeedForm';
+import Feeds from './components/Feeds';
 import HomeBody from './components/HomeBody';
 
 import {
@@ -23,8 +24,11 @@ function App() {
         {/* <Header /> */}
         <Switch>
           <Route exact path="/join" component={Join} />
-          {/* <Route exact path="/chat" component={Chat} /> */}
-          <Route exact path="/wall" component={Wall} />
+          <Route exact path="/chat" component={Chat} />
+          <Route exact path="/wall">
+            <FeedForm />
+            <Feeds />
+          </Route>
           <Route path="/profile/:name">
             <UserProfile />
           </Route>
@@ -33,6 +37,7 @@ function App() {
           </Route>
           <Route exact path="/login" component={UserLogin} />
           <Route exact path="/" component={HomeBody} />
+          <Route exact path="/header" component={Header} />
         </Switch>
       </Router>
     </div >

@@ -1,41 +1,16 @@
-/* .registration-container {
-    margin: 40vh 0;
-  }
-  
-.input-container {
-    margin-top: 2vh;
-    align-items: right;
-    width: 57vw;
-    display: flex;
-    justify-content: flex-end;
-}
-  
-input {
-    width: 15vw;
-}
-  
-.registrationButton {
-    margin-top: 2vh;
-    padding: 0 1vw;
-    background-color: blue;
-    color: white;
-    border: transparent;
-    border-radius: 10px;
-} */
-
 .UserRegistrationOuterContainer {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    background-color: #f2f2f2;
-    color: black;
+    background-color: var(--secondaryBGC);
+    color: var(--secondaryTC);
 }
 
 .UserRegistrationInnerContainer {
     height: 94vh;
-    background-color: white;
+    background-color: var(--tertiaryBGC);
     margin: 0 6vw;
     display: flex;
     flex-direction: column;
@@ -66,29 +41,15 @@ input {
   }
 
   .UserRegistrationInnerContainer h1 {
-    color: black;
-  }
-  
-  .button {
-      color: #fff;
-      text-decoration: none;
-      background: #095ffe;
-      padding: 20px;
-      display: inline-block;
-      border: none;
-      width: 50%;
-  }
-
-  .button h3 {
-    margin: 0;
+    color: var(--secondaryTC);
   }
 
   .UserRegistrationInnerContainer h5 {
     margin: 2vh 0;
-    color: #095ffe;
+    color: var(--tertiaryTC);
   }
 
-  .input {
+  .register-input {
     border: 1px solid black;
     height: 5vh;
     padding-left: 2vw;
@@ -96,7 +57,7 @@ input {
 
 .passwords-match {
     visibility: hidden;
-    color: red;
+    color: var(--errorTC);
     margin: 1vh 0 0;
 }
 

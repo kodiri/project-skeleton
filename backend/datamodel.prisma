@@ -19,7 +19,21 @@ type User {
 type Post {
   id: ID! @id,
   text: String!,
-  likes: Float!,
   createdAt: DateTime! @createdAt,
-  owner: User! @relation(link: INLINE),
+  author: User!,
+}
+
+
+
+type User {
+  id: ID! @id,
+  firstName: String!,
+  posts: [Post!]!,
+}
+
+type Post {
+  id: ID! @id,
+  title: String!,
+  text: String!,
+  author: User!,
 }

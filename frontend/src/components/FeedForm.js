@@ -16,8 +16,8 @@ const NEW_POST_MUTATION = gql`
 
 export default class FeedForm extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       text: "",
       author: ""
@@ -36,7 +36,7 @@ export default class FeedForm extends React.Component {
             {(newPost, { error, loading }) => {
               return (
                 <form method="post"
-                  className="userFeedForm"
+                  className={`userFeedForm${this.props.newPost ? '' : ' hidden'}`}
                   onSubmit={async e => {
                     e.preventDefault();
                     const author = data?.me.name;
@@ -54,9 +54,10 @@ export default class FeedForm extends React.Component {
                       rows="3"
                     />
                   </div>
-                  <button type="submit">
+                  <button 
+                    type="submit"
+                    onClick={() => this.props.toggleNewPost()}>
                     <h3>Post</h3>
-
                   </button>
                 </form>
               )

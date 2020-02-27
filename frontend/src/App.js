@@ -37,6 +37,7 @@ function App() {
           </Route>
           <Route exact path="/login" component={UserLogin} />
           <Route exact path="/" component={HomeBody} />
+          <Route exact path="/header" component={Header} />
         </Switch>
       </Router>
     </div >

@@ -1,6 +1,9 @@
 .form {
+  position: fixed;
   display: flex;
   border-top: 2px solid #D3D3D3;
+  bottom: 0;
+  width: 100vw;
 }
 
 .input {
@@ -9,6 +12,7 @@
   padding: 5%;
   width: 80%;
   font-size: 1.2em;
+  height: 100%;
 }
 
 input:focus, textarea:focus, select:focus{
@@ -19,9 +23,13 @@ input:focus, textarea:focus, select:focus{
   color: #fff !important; /* <- THAT'S ROCHELLE!!!! */
   text-transform: uppercase;
   text-decoration: none;
-  background: #2979FF;
+  background: var(--primaryBGC);
   padding: 20px;
   display: inline-block;
   border: none;
   width: 20%;
+}
+
+.sendButton h3 {
+  margin: 0;
 }

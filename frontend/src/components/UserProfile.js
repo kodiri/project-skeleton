@@ -8,6 +8,7 @@ import Feeds from '../components/Feeds'
 import FeedForm from '../components/FeedForm'
 import ChatForm from '../components/ChatForm'
 import "./styles/UserProfile.css";
+import Wall from "./Wall";
 
 const GET_USER_QUERY = gql`
   query($name: String!) {
@@ -21,8 +22,8 @@ const GET_USER_QUERY = gql`
 
 class UserProfile extends Component {
 
-  state={ newPost: false, menuVisible: false, chatJoin: false }
-  
+  state = { newPost: false, menuVisible: false, chatJoin: false }
+
   toggleNewPost() {
     this.setState({ newPost: !this.state.newPost });
     this.setState({ menuVisible: false });
@@ -46,7 +47,7 @@ class UserProfile extends Component {
     const { newPost, menuVisible, chatJoin } = this.state;
     return (
       <div>
-        
+
         <div className="wrapper">
           <Query query={GET_USER_QUERY} variables={{ name }}>
             {({ data }, loading, error) => {
@@ -63,15 +64,16 @@ class UserProfile extends Component {
                     <p>{userData.bio}</p>
                   </div>
                   <Feeds />
-                  <ActionBar 
-                    toggleNewPost={() => this.toggleNewPost()} 
+                  <ActionBar
+                    toggleNewPost={() => this.toggleNewPost()}
                     toggleMenuVisible={() => this.toggleMenuVisible()}
                     toggleChatJoin={() => this.toggleChatJoin()} />
-                  <FeedForm 
-                    newPost={newPost} 
+                  <Wall />
+                  <FeedForm
+                    newPost={newPost}
                     toggleNewPost={() => this.toggleNewPost()} />
-                  <Header  
-                    menuVisible={menuVisible} 
+                  <Header
+                    menuVisible={menuVisible}
                     toggleMenuVisible={() => this.toggleMenuVisible()} />
                   <ChatForm chatJoin={chatJoin} />
                 </div>
@@ -85,29 +87,29 @@ class UserProfile extends Component {
 }
 
 function ActionBar({ toggleNewPost, toggleMenuVisible, toggleChatJoin }) {
-  
+
 
   return (
     <div className="actionBar">
       <button className="personalPageButton">
-        <img 
-          src={require("../assets/icons/newpost.svg")} 
-          alt="newpost" 
-          onClick={toggleNewPost}/>
+        <img
+          src={require("../assets/icons/newpost.svg")}
+          alt="newpost"
+          onClick={toggleNewPost} />
       </button>
       <button className="personalPageButton">
         <img
           src={require("../assets/icons/chat.svg")}
           alt="chat"
-          onClick={toggleChatJoin}/>
+          onClick={toggleChatJoin} />
       </button>
       {/* <button className="personalPageButton">
         <img src={require("../assets/icons/search.svg")} alt="search" />
       </button> */}
       <button className="personalPageButton menu">
-        <img 
-          src={require("../assets/icons/menu.svg")} 
-          alt="menu" 
+        <img
+          src={require("../assets/icons/menu.svg")}
+          alt="menu"
           onClick={toggleMenuVisible} />
       </button>
     </div>

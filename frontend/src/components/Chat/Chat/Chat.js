@@ -23,7 +23,7 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
-
+    io.set('origins', '*:*');
     socket = io(ENDPOINT);
 
     setRoom(room);

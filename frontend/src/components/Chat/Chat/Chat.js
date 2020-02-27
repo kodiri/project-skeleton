@@ -17,8 +17,8 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = 'https://skeleton-project-chat.herokuapp.com/chat';
-  // const ENDPOINT = 'https://bravo-chat.herokuapp.com/';
+  // const ENDPOINT = 'https://skeleton-project-chat.herokuapp.com/chat';
+  const ENDPOINT = 'https://bravo-chat.herokuapp.com/';
   // const ENDPOINT = 'http://localhost:5000/';
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Chat = ({ location }) => {
 
     setRoom(room);
     setName(name);
-    socket.set('origins', '*:*');
+
     socket.emit('join', { name, room }, (error) => {
       if (error) {
         alert(error);

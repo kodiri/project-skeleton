@@ -23,12 +23,11 @@ const Chat = ({ location }) => {
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
-    io.set('origins', '*:*');
     socket = io(ENDPOINT);
 
     setRoom(room);
     setName(name);
-
+    socket.set('origins', '*:*');
     socket.emit('join', { name, room }, (error) => {
       if (error) {
         alert(error);

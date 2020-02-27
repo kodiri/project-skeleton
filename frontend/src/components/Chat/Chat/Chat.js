@@ -17,7 +17,7 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = 'https://skeleton-project-chat.herokuapp.com/chat/';
+  const ENDPOINT = 'https://skeleton-project-chat.herokuapp.com/';
   // const ENDPOINT = 'https://bravo-chat.herokuapp.com/';
   // const ENDPOINT = 'http://localhost:5000/';
 

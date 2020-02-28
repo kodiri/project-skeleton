@@ -35,31 +35,33 @@ export default class FeedForm extends React.Component {
           <Mutation mutation={NEW_POST_MUTATION} variables={this.state}>
             {(newPost, { error, loading }) => {
               return (
-                <form method="post"
-                  className={`userFeedForm${this.props.newPost ? '' : ' hidden'}`}
-                  onSubmit={async e => {
-                    e.preventDefault();
-                    const author = data?.me.name;
-                    this.setState({ author });
-                    await newPost();
-                  }}>
-                  <div className='user-container'>
-                    <textarea
-                      className="userInput"
-                      type="text"
-                      placeholder="Enter Text"
-                      value={this.state.text}
-                      onChange={this.saveToState}
-                      name="text"
-                      rows="3"
-                    />
-                  </div>
-                  <button 
-                    type="submit"
-                    onClick={() => this.props.toggleNewPost()}>
-                    <h3>Post</h3>
-                  </button>
-                </form>
+                <div className={`userFeedFormContainer${this.props.newPost ? '' : ' hidden'}`}>
+                  <form method="post"
+                    className='userFeedForm'
+                    onSubmit={async e => {
+                      e.preventDefault();
+                      const author = data?.me.name;
+                      this.setState({ author });
+                      await newPost();
+                    }}>
+                    <div className='user-container'>
+                      <textarea
+                        className="userInput"
+                        type="text"
+                        placeholder="Enter Text"
+                        value={this.state.text}
+                        onChange={this.saveToState}
+                        name="text"
+                        rows="3"
+                      />
+                    </div>
+                    <button 
+                      type="submit"
+                      onClick={() => this.props.toggleNewPost()}>
+                      <h3>Post</h3>
+                    </button>
+                  </form>
+                </div>
               )
             }}
           </Mutation>

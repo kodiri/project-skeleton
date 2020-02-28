@@ -7,7 +7,7 @@ import User from './User';
 import Signout from './SignoutForm';
 import './styles/Header.css';
 
-function Header({ menuVisible, toggleMenuVisible }) {
+function Header({ menuVisible, toggleMenuVisible, toggleChatJoin }) {
     return (
         <User>
             {({ data }) => (
@@ -21,26 +21,15 @@ function Header({ menuVisible, toggleMenuVisible }) {
                                     <h3>Home</h3>
                                 </div>
                             </Link>
-                            <Link to="/chat">
-                                <div 
-                                    className="menu-item"
-                                    onClick={toggleMenuVisible}>
-                                    <h3>Chat</h3>
-                                </div>
-                            </Link>
+                            <div 
+                                className="menu-item"
+                                onClick={toggleChatJoin}>
+                                <h3>Chat</h3>
+                            </div>
                             {data ?
                                 (
                                     <div>
-                                        <Signout />
-                                        {data?.me ?
-                                            <div 
-                                                className="menu-item"
-                                                onClick={toggleMenuVisible}>
-                                                <h3>Logged as {data.me.name}</h3>
-                                            </div>
-                                            :
-                                            null
-                                        }
+                                        <Signout data={data} />
                                     </div>
                                 ) :
                                 <Link to="/login">

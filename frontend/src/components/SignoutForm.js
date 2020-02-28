@@ -13,8 +13,8 @@ const SIGN_OUT_MUTATION = gql`
 
 class Signout extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             toHomePage: false
         }
@@ -25,6 +25,8 @@ class Signout extends Component {
         if (this.state.toHomePage === true) {
             return <Redirect to='/' />
         }
+
+        const { data } = this.props;
 
         return (
 
@@ -39,7 +41,17 @@ class Signout extends Component {
                                     toHomePage: true
                                 })
                             }}>
-                            <button type="submit">Sign Out</button>
+                            <div className='menu-item'>
+                                <button type="submit"><h3>Sign Out</h3></button>
+                                {data?.me ?
+                                            <div 
+                                                className="menu-name">
+                                                <h5>Logged in as <span>{data.me.name}</span></h5>
+                                            </div>
+                                            :
+                                            null
+                                }
+                            </div>
                         </form>
                     )
                 }}

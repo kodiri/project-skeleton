@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { ApolloProvider } from 'react-apollo';
-import { client } from './utils/Client';
+import CreateClient from './utils/CreateClient';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <ApolloProvider client={client}>
+    <ApolloProvider client={CreateClient()}>
         <App />
     </ApolloProvider>
     , document.getElementById('root'));

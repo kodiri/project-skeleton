@@ -10,7 +10,7 @@
     background-color: var(--tertiaryBGC);
     color: var(--secondaryTC);
     overflow: hidden;
-    grid-template-rows: 20vh 15vh auto;
+    grid-template-rows: 20vh 18vh auto;
     grid-template-areas: 
     "cover"
     "details"
@@ -26,8 +26,10 @@
 }
 
 .details {
+    padding-top: 10vh;
     grid-area: "details";
     background-color: var(--secondaryBGC);
+    border-bottom: 1px solid grey;
 }
 
 .actionBar {
@@ -55,4 +57,19 @@
 
 .personalPageButton.menu {
     transform: rotate(90deg);
+}
+
+.profile-picture {
+    position: absolute;
+    top: 15vh;
+    background-color: white;
+    width: 35vw;
+    height: 35vw;
+    border-radius: 50%;
+    border: 3px solid var(--secondaryBGC);
+    margin: 0 32.5vw;
+}
+
+.profile-picture img {
+    width: 100%;
 }

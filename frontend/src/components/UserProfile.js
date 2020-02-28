@@ -4,6 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { withRouter } from "react-router-dom";
 import cover from '../assets/cover-pictures/cover.jpg'
+import profilePic from '../assets/profile-pictures/generic-user.png'
 import Feeds from '../components/Feeds'
 import FeedForm from '../components/FeedForm'
 import ChatForm from '../components/ChatForm'
@@ -59,11 +60,13 @@ class UserProfile extends Component {
                   <div className='cover-image'>
                     <img src={cover} alt='' />
                   </div>
+                  <div className='profile-picture'>
+                    <img src={profilePic} alt=''/>
+                  </div>
                   <div className='details'>
                     <h2>{userData.name}</h2>
                     <p>{userData.bio}</p>
                   </div>
-                  {/* <Feeds /> */}
                   <ActionBar
                     toggleNewPost={() => this.toggleNewPost()}
                     toggleMenuVisible={() => this.toggleMenuVisible()}
@@ -73,7 +76,8 @@ class UserProfile extends Component {
                     toggleNewPost={() => this.toggleNewPost()} />
                   <Header
                     menuVisible={menuVisible}
-                    toggleMenuVisible={() => this.toggleMenuVisible()} />
+                    toggleMenuVisible={() => this.toggleMenuVisible()}
+                    toggleChatJoin={() => this.toggleChatJoin()}  />
                   <ChatForm chatJoin={chatJoin} />
                 </div>
               ) : null;

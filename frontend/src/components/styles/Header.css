@@ -2,7 +2,7 @@
     background-color: var(--primaryBGC);
     color: var(--primaryTC);
     position: fixed;
-    bottom: 6vh;
+    bottom: 5.5vh;
     width: 100%;
     opacity: 1;
     transition: ease 0.5s;
@@ -29,4 +29,19 @@
 
 .menu-item.last {
     border-bottom: none;
+}
+
+.menu-item button {
+    background-color: transparent;
+    color: var(--primaryTC);
+    border: none;
+}
+
+.menu-item span {
+    color: var(--secondaryTC);
+}
+
+.menu-name h5 {
+    margin: 0;
+    color: var(--secondaryBGC);
 }

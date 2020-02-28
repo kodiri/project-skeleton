@@ -34,7 +34,7 @@ class UserLogin extends Component {
 
     render() {
         if (this.state.toProfilePage === true) {
-            return <Redirect to={`/profile/`} />
+            return <Redirect to={`/profile/dumbo`} />
         }
         return (
             <Mutation mutation={SIGNIN_MUTATION} variables={this.state}>
@@ -45,6 +45,7 @@ class UserLogin extends Component {
                             onSubmit={async e => {
                                 e.preventDefault();
                                 await signin();
+                                console.log(signin);
                                 this.setState({
                                     toProfilePage: true
                                 })

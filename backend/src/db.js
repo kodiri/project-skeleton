@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const db = new Prisma({
     typeDefs: "src/generated/prisma.graphql",
-    endpoint: "https://eu1.prisma.sh/andrea-spadavecchia-d8a47f/skeletro/dev",
+    endpoint: "https://project-skeleton-ef0d74e0b6.herokuapp.com/skeleton-prod/prod",
     debug: false,
 })
 

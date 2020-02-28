@@ -24,7 +24,7 @@ function App() {
         {/* <Header /> */}
         <Switch>
           <Route exact path="/join" component={Join} />
-          <Route exact path="/chat" component={Join} />
+          <Route exact path="/chat" component={Chat} />
           <Route exact path="/wall">
             <FeedForm />
             <Feeds />

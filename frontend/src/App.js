@@ -13,7 +13,7 @@ import HomeBody from './components/HomeBody';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
 } from "react-router-dom";
 
 function App() {

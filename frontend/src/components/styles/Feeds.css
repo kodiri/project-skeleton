@@ -1,26 +1,27 @@
 .list {
     color: var(--secondaryTC);
-    width: 300px;
+    width: 100vw;
     background-color: var(--tertiaryBGC);
     /* height: 70px; */
-    margin: 20px auto;
-    border-top: 1px solid grey;
+    /* margin: 20px auto; */
+    border-bottom: 1px solid grey;
 }
 
-.input {
-    width: 220px;
+.feedInput {
+    width: 100vw;
     background-color: var(--tertiaryBGC);
     border: none;
     outline: none;
     color: var(--secondaryTC);
     font-size: 20px;
     overflow: hidden;
+    height: auto;
+    padding-left: 10px;
 }
 
 .list p{
-    padding: 12px;
-
-
+    padding: 5px;
+    margin: 0;
 }
 .list p input {
     background-color: transparent;
@@ -30,4 +31,8 @@
 }
 .list p input:focus {
     outline: none;
+}
+
+.list button {
+    margin-left: 90%;
 }

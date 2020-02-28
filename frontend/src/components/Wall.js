@@ -4,7 +4,7 @@ import Listitems from './Listitems'
 
 export default class Wall extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       items: [],
       currentItem: { text: '', key: '' }
@@ -13,6 +13,11 @@ export default class Wall extends React.Component {
     this.addItem = this.addItem.bind(this);
   }
 
+  deleteItem(newIndex) {
+    const items = this.state.items;
+    const newItems = items.filter((item, index) => index !== newIndex);
+    this.setState({ items: newItems });
+  }
 
   handleInput(e) {
     this.setState({
@@ -37,18 +42,31 @@ export default class Wall extends React.Component {
   }
   render() {
     return (
-      <div className='Wall'>
+      <div>
         <header>
-          <form className='userWall' onSubmit={this.addItem}>
-            <input type='text' placeholder='Enter Text'
-              value={this.state.currentItem.text}
-              onChange={this.handleInput} />
-            <button
-              style={{ backgroundColor: 'rgb(202,156,24)', height: '50px', width: '80px', color: 'white' }}
-              type='submit'>Post</button>
-          </form>
+          <div className={`userFeedFormContainer${this.props.newPost ? '' : ' hidden'}`} >
+            <form 
+              className='userFeedForm'
+              onSubmit={this.addItem}>
+              <div className='user-container'>
+                <textarea 
+                  className="userInput"
+                  type='text' 
+                  placeholder='Enter Text'
+                  value={this.state.currentItem.text}
+                  onChange={this.handleInput} 
+                  name="text"
+                  rows="3"/>
+              </div>
+              <button
+                type='submit'
+                onClick={() => this.props.toggleNewPost()}>
+                <h3>Post</h3>
+              </button>
+            </form>
+          </div>
         </header>
-        <Listitems items={this.state.items} />
+        <Listitems items={this.state.items} deleteItem={(index) => this.deleteItem(index)} />
       </div>
     );
   }

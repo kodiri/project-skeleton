@@ -63,13 +63,12 @@ class UserProfile extends Component {
                     <h2>{userData.name}</h2>
                     <p>{userData.bio}</p>
                   </div>
-                  <Feeds />
+                  {/* <Feeds /> */}
                   <ActionBar
                     toggleNewPost={() => this.toggleNewPost()}
                     toggleMenuVisible={() => this.toggleMenuVisible()}
                     toggleChatJoin={() => this.toggleChatJoin()} />
-                  <Wall />
-                  <FeedForm
+                  <Wall
                     newPost={newPost}
                     toggleNewPost={() => this.toggleNewPost()} />
                   <Header

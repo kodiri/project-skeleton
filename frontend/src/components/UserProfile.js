@@ -2,11 +2,11 @@ import React, { Component, useState } from "react";
 import Header from "./Header";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import cover from '../assets/cover-pictures/cover.jpg'
 import profilePic from '../assets/profile-pictures/generic-user.png'
-import Feeds from '../components/Feeds'
-import FeedForm from '../components/FeedForm'
+// import Feeds from '../components/Feeds'
+// import FeedForm from '../components/FeedForm'
 import ChatForm from '../components/ChatForm'
 import "./styles/UserProfile.css";
 import Wall from "./Wall";
@@ -44,6 +44,11 @@ class UserProfile extends Component {
   }
 
   render() {
+
+    if (this.state.chatJoin === true) {
+      return <Redirect to='/join' />
+    }
+
     const name = this.props.match.params.name;
     const { newPost, menuVisible, chatJoin } = this.state;
     return (
@@ -61,7 +66,7 @@ class UserProfile extends Component {
                     <img src={cover} alt='' />
                   </div>
                   <div className='profile-picture'>
-                    <img src={profilePic} alt=''/>
+                    <img src={profilePic} alt='' />
                   </div>
                   <div className='details'>
                     <h2>{userData.name}</h2>
@@ -77,7 +82,7 @@ class UserProfile extends Component {
                   <Header
                     menuVisible={menuVisible}
                     toggleMenuVisible={() => this.toggleMenuVisible()}
-                    toggleChatJoin={() => this.toggleChatJoin()}  />
+                    toggleChatJoin={() => this.toggleChatJoin()} />
                   <ChatForm chatJoin={chatJoin} />
                 </div>
               ) : null;

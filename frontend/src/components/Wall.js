@@ -19,6 +19,7 @@ export default class Wall extends React.Component {
     this.setState({ items: newItems });
   }
 
+
   handleInput(e) {
     this.setState({
       currentItem: { text: e.target.value, key: Date.now() }
